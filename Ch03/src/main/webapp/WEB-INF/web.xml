@@ -23,4 +23,17 @@
   </context-param> 
   
   
+  <!-- 에러 페이지 설정 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/Error/404.jsp</location>
+  </error-page>
+  
+   <error-page>
+  	<error-code>500</error-code>
+  	<location>/Error/500.jsp</location>
+  </error-page>
+  
+  
+  
 </web-app>
