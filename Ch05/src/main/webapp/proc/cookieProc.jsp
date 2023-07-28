@@ -18,7 +18,7 @@
 		
 		// 쿠키 생성
 		Cookie c1 = new Cookie("cid",id);
-		Cookie c2 = new Cookie("cpw",id);
+		Cookie c2 = new Cookie("cpw",pw);
 		
 		// 쿠키 전송- 쿠키를 실어서 보낸다
 		response.addCookie(c1);
