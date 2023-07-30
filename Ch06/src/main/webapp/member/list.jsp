@@ -1,4 +1,4 @@
-<%@page import="vo.User1VO"%>
+<%@page import="vo.MemberVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Statement"%>
@@ -13,20 +13,21 @@
 	String user = "root";
 	String pass = "1234";
 	
-	List<User1VO> users = new ArrayList<>();
+	List<MemberVO> users = new ArrayList<>();
 
 	try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host,user,pass);
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM `user1`");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM `Member`");
 		
 		while(rs.next()){
-			User1VO vo = new User1VO();
+			MemberVO vo = new MemberVO();
 			vo.setUid(rs.getString(1));
 			vo.setName(rs.getString(2));
 			vo.setHp(rs.getString(3));
-			vo.setAge(rs.getInt(4));
+			vo.setPos(rs.getString(4));
+			vo.setDep(rs.getString(5));
 			
 			users.add(vo);
 			
@@ -48,30 +49,32 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user1::list</title>
+		<title>Member::list</title>
 	</head>
 	<body>
-		<h3>User1 목록</h3>
+		<h3>Member 목록</h3>
 		<a href="/Ch06/1_JDBC.jsp">처음으로</a>
-		<a href="/Ch06/user1/register.jsp">user1 등록</a>
+		<a href="/Ch06/member/register.jsp">Member등록</a>
 		
 		<table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>휴대폰</th>
-				<th>나이</th>
+				<th>직급</th>
+				<th>부서</th>
 				<th>관리</th>
 			</tr>
-			<% for(User1VO vo: users){ %>
+			<% for(MemberVO vo: users){ %>
 			<tr>
 				<td><%= vo.getUid() %></td>
 				<td><%= vo.getName()%></td>
 				<td><%= vo.getHp()%></td>
-				<td><%= vo.getAge()%></td>
+				<td><%= vo.getPos()%></td>
+				<td><%= vo.getDep()%></td>
 				<td>
-					<a href="/Ch06/user1/modify.jsp?uid=<%=vo.getUid()%>">수정</a> 
-					<a href="/Ch06/user1/delete.jsp?uid=<%=vo.getUid()%>">삭제</a> 
+					<a href="/Ch06/member/modify.jsp?uid=<%=vo.getUid()%>">수정</a> 
+					<a href="/Ch06/member/delete.jsp?uid=<%=vo.getUid()%>">삭제</a> 
 				</td>
 			</tr>
 			<% } %>

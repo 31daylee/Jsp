@@ -1,9 +1,9 @@
 
+<%@page import="vo.MemberVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="vo.User1VO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -14,12 +14,12 @@
 	String user = "root";
 	String pass = "1234";
 
-	User1VO vo = new User1VO();
+	MemberVO vo = new MemberVO();
 	
 	try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host,user,pass);
-		PreparedStatement psmt = conn.prepareStatement("SELECT * FROM `User1` WHERE `uid`=?");
+		PreparedStatement psmt = conn.prepareStatement("SELECT * FROM `Member` WHERE `uid`=?");
 
 		psmt.setString(1,uid);
 		
@@ -30,7 +30,8 @@
 			vo.setUid(rs.getString(1));
 			vo.setName(rs.getString(2));
 			vo.setHp(rs.getString(3));
-			vo.setAge(rs.getInt(4));
+			vo.setPos(rs.getString(4));
+			vo.setDep(rs.getString(5));
 			
 		}
 		rs.close();
@@ -50,18 +51,18 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user1::modify</title>
+		<title>Member::modify</title>
 	</head>
 		<%--
 			날짜 : 2023/07/28
 			이름 : 이현정
-			내용 : JSP 데이터베이스 실습하기
+			내용 : JSP 데이터베이스 실습하기_Member
 		--%>
 	<body>
-		<h3>User1 수정</h3>
+		<h3>Member 수정</h3>
 		<a href="/Ch06/1_JDBC.jsp">처음으로</a>
-        <a href="/Ch06/user1/list.jsp">User1 목록</a>
-		<form action="/Ch06/user1/modifyProc.jsp" method="post">
+        <a href="/Ch06/member/list.jsp">Member 목록</a>
+		<form action="/Ch06/member/modifyProc.jsp" method="post">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
@@ -76,15 +77,17 @@
 				<td><input type="text" name="hp" value="<%= vo.getHp()%>"></td>
 			</tr>
 			<tr>
-				<td>나이</td>
-				<td><input type="number" name="age" value="<%= vo.getAge()%>"></td>
+				<td>직급</td>
+				<td><input type="text" name="pos" value="<%= vo.getPos()%>"></td>
+			</tr>
+			<tr>
+				<td>부서</td>
+				<td><input type="text" name="dep" value="<%= vo.getDep()%>"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right"><input type="submit" value="수정"></td>
 			</tr>
 		</table>
 		</form>
-		
-		
 	</body>
 </html>

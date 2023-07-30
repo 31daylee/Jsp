@@ -10,7 +10,8 @@
 	String uid = request.getParameter("uid");
 	String name = request.getParameter("name");
 	String hp = request.getParameter("hp");
-	String age = request.getParameter("age");
+	String pos = request.getParameter("pos");
+	String dep = request.getParameter("dep");
 
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/userdb";
@@ -20,11 +21,12 @@
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host,user,pass);
-		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `user1` VALUES (?,?,?,?)");
+		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `Member` VALUES (?,?,?,?,?)");
 		psmt.setString(1, uid);
 		psmt.setString(2, name);
 		psmt.setString(3, hp);
-		psmt.setString(4, age); // 전송데이터는 무조건 문자열로 넘어오기 때문에 문자열로 해야함
+		psmt.setString(4, pos); // 전송데이터는 무조건 문자열로 넘어오기 때문에 문자열로 해야함
+		psmt.setString(5, dep); // 전송데이터는 무조건 문자열로 넘어오기 때문에 문자열로 해야함
 		psmt.executeUpdate();
 		psmt.close();
 		conn.close();		
@@ -32,7 +34,7 @@
 		e.printStackTrace();
 	}
 
-	response.sendRedirect("/Ch06/user1/list.jsp");
+	response.sendRedirect("/Ch06/member/list.jsp");
 
 
 %>

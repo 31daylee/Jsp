@@ -9,8 +9,8 @@
 	String uid = request.getParameter("uid");
 	String name = request.getParameter("name");
 	String hp = request.getParameter("hp");
-	String age = request.getParameter("age");
-	
+	String pos = request.getParameter("pos");
+	String dep = request.getParameter("dep");
 	// 데이터베이스 처리 
 	String host = "jdbc:mysql://127.0.0.1:3306/userdb";
 	String user = "root";
@@ -21,7 +21,7 @@
 	
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host,user,pass);
-		PreparedStatement psmt = conn.prepareStatement("DELETE FROM `User1` WHERE `uid`=?");
+		PreparedStatement psmt = conn.prepareStatement("DELETE FROM `Member` WHERE `uid`=?");
 		psmt.setString(1, uid);
 		psmt.executeUpdate();
 		
@@ -35,7 +35,7 @@
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("/Ch06/user1/list.jsp");
+	response.sendRedirect("/Ch06/member/list.jsp");
 
 
 
