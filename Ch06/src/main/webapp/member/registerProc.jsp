@@ -25,8 +25,8 @@
 		psmt.setString(1, uid);
 		psmt.setString(2, name);
 		psmt.setString(3, hp);
-		psmt.setString(4, pos); // 전송데이터는 무조건 문자열로 넘어오기 때문에 문자열로 해야함
-		psmt.setString(5, dep); // 전송데이터는 무조건 문자열로 넘어오기 때문에 문자열로 해야함
+		psmt.setString(4, pos);
+		psmt.setString(5, dep); 
 		psmt.executeUpdate();
 		psmt.close();
 		conn.close();		
