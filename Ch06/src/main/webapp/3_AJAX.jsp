@@ -71,7 +71,7 @@
 								td4.innerText = user.age;
 								
 								tr.appendChild(td1);
-								tr.appendChild(td2);
+					d			tr.appendChild(td2);
 								tr.appendChild(td3);
 								tr.appendChild(td4);
 								
