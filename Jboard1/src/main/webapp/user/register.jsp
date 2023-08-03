@@ -8,41 +8,68 @@
     <title>Jboard::register</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script>
-    	
-    	$(function() {
+    <script src="/Jboard1/js/checkUser.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="/Jboard1/js/zipcode.js"></script>
+	<script>
+		// 폼 데이터 검증결과 상태 변수
+		let isUidOk 	= false;
+		let isPassOk 	= false;
+		let isNameOk 	= false;
+		let isNickOk 	= false;
+		let isEmailOk 	= false;
+		let isHpOk 		= false;
+	
+		// 유효성 검증(Validation)
+		$(function(){
 			
-    		$('#btnCheckUid').click(function() {
+			// 아이디 검사
+			
+			
+			// 비밀번호 검사
+			
+			
+			// 이름 검사
+			
+			
+			// 별명 검사
+			
+			
+			// 이메일 검사
+			
+			
+			// 휴대폰 검사
+			
+			
+			// 최종 전송
+			$('#formUser').submit(function(){
 				
-    			const uid = $('input[name=uid]').val();
-				const jsonData = {
-					"uid" : uid	
-				};
+				if(!isUidOk){
+					return true; // 폼 전송 시작
+				}
+				if(!isPassOk){
+					return false; // 전송 막는 법 = e.preventDefault
+				}
+				if(!isNameOk){
+					return false;
+				}
+				if(!isNickOk){
+					return false;
+				}
+				if(!isEmailOk){
+					return false;
+				}
+				if(!isHpOk){
+					return false;
+				}
 				
-				$.ajax({
-					url:'/Jboard1/user/checkUid.jsp',
-					type:'GET',
-					data: jsonData,
-					dataType:'json',
-					success:function(data){
-						
-						if(data.result >= 1){
-							$('.resultId').css('color', 'red').text('이미 사용중인 아이디 입니다.');
-						}else{
-							$('.resultId').css('color', 'green').text('사용할 수 있는 아이디 입니다.');
-						}
-					}					
-				
-				})
-    			
-    		
-    		});
-		});
-    
-    
-    </script>
+				return false;
+			
+			});
+			
+		}); // 유효성 검증 끝
+	</script>
 </head>
-
 <body>
     <div id="container">
         <header>
@@ -50,7 +77,7 @@
         </header>
         <main>
             <section id="user" class="register">
-                <form action="/Jboard1/user/registerProc.jsp" method="post">
+                <form id="formUser" action="/Jboard1/user/registerProc.jsp" method="post">
                 <table border="1">
                     <caption>사이트 이용정보 입력</caption>
                     <tbody>
@@ -90,11 +117,17 @@
                         </tr>
                         <tr>
                             <td>E-Mail</td>
-                            <td><input type="text" name="email" placeholder="이메일 입력"></td>
+                            <td>
+                            	<input type="text" name="email" placeholder="이메일 입력">
+                            	<span id="resultEmail"></span>
+	                       </td>
                         </tr>
                         <tr>
                             <td>휴대폰</td>
-                            <td><input type="text" name="hp" placeholder="- 포함 13자리 입력 "></td>
+                            <td>
+                            	<input type="text" name="hp" placeholder="- 포함 13자리 입력 ">
+                            	<span id="resultHp"></span>
+                            </td>
                         </tr>
                         <tr>
                             <td>주소</td>
@@ -102,7 +135,7 @@
                             <td>
                                 <div>
                                     <input type="text" name="zip" placeholder="우편번호">
-                                    <button class="btnZip"><img src="../images/chk_post.gif" alt="우편번호찾기"></button>
+                                    <button type ="button" class="btnZip" onclick="zipcode()"><img src="../images/chk_post.gif" alt="우편번호찾기"></button>
                                 </div>
                                 <div>
                                     <input type="text" name="addr1" placeholder="주소를 검색하세요.">
@@ -115,8 +148,7 @@
                     </tbody>
                 </table>
                 <div>
-                    <a href="/Jboard1/User/login.jsp" class="btnCanel">취소</a>
-                    <!-- <a href="/Jboard1/user/registerProc.jsp" class="btnJoin">회원가입</a> -->
+                    <a href="#" class="btnCanel">취소</a>
                     <input type="submit" class="btnJoin" value="회원가입"/>
                 </div>
                 </form>
