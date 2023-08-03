@@ -8,7 +8,6 @@
     <title>Jboard::register</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="/Jboard1/js/checkUser.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="/Jboard1/js/zipcode.js"></script>
 	<script>
@@ -20,55 +19,110 @@
 		let isEmailOk 	= false;
 		let isHpOk 		= false;
 	
+		
+		// 데이터 검증에 사용하는 정규표현식
+		let reUid   = /^[a-z]+[a-z0-9]{4,19}$/g;
+		let rePass  = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{5,16}$/;
+		let reName  = /^[가-힣]{2,10}$/ 
+		let reNick  = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
+		let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
+		
+		
 		// 유효성 검증(Validation)
 		$(function(){
 			
-			// 아이디 검사
+			// 아이디 검사 
+			$('input[name=uid]').keydown(function(){
+				$('.resultId').text('');
+				isUidOk = false;
+				
+			});
 			
 			
 			// 비밀번호 검사
-			
+			$('input[name=pass2]').focusout(function(){
+				
+				const pass1 = $('input[name=pass1]').val();
+				const pass2 = $('input[name=pass2]').val();
+				
+				if(pass1 == pass2){
+					if(pass1.match(rePass)){
+						$('.resultPass').css('color', 'green').text('사용 가능한 비밀번호 입니다.');
+						isPassOk = true;
+					}
+					else if(!pass2.match(rePass)){
+						$('.resultPass').css('color', 'red').text('비밀번호는 숫자, 영문, 특수문자 조합 5자리 이상이어야 합니다.');
+						isPassOk = false;
+					}
+					else if(pass1 == '' || pass2 == '' ){
+						$('.resultPass').text(' ');
+						isPassOk = false;
+					}else{
+						$('.resultPass').css('color', 'red').text('비밀번호는 숫자, 영문, 특수문자 조합 5자리 이상이어야 합니다.');
+						isPassOk = false;
+					}
+				}else{
+					$('.resultPass').css('color', 'red').text('비밀번호가 일치하지 않습니다.');
+					isPassOk = false;
+				}
+				
+				
+			});
 			
 			// 이름 검사
+			$('input[name=name]').focusout(function(){
+				
+				const name = $(this).val();
+				
+				if(name.match(reName)){
+					$('.resultName').text('');
+					isNameOk = true;
+					
+				}else{
+					$('.resultName').css('color', 'red').text('유효한 이름이 아닙니다.');
+					isNameOk = false; 
+				}
+				
+			});
 			
-			
-			// 별명 검사
-			
-			
-			// 이메일 검사
-			
-			
-			// 휴대폰 검사
-			
+		
 			
 			// 최종 전송
 			$('#formUser').submit(function(){
 				
 				if(!isUidOk){
-					return true; // 폼 전송 시작
+					alert('아이디를 확인 하십시오');
+					return false; // 폼 전송 취소
 				}
 				if(!isPassOk){
+					alert('비밀번호를 확인 하십시오');
 					return false; // 전송 막는 법 = e.preventDefault
 				}
 				if(!isNameOk){
-					return false;
+					alert('이름을 확인 하십시오');
+					return false; // 폼 전송 취소
 				}
 				if(!isNickOk){
-					return false;
+					alert('별명을 확인 하십시오');
+					return false; // 폼 전송 취소
 				}
 				if(!isEmailOk){
-					return false;
+					alert('이메일을 확인 하십시오');
+					return false; // 폼 전송 취소
 				}
 				if(!isHpOk){
-					return false;
+					alert('전화번호를 확인 하십시오');
+					return false; // 폼 전송 취소
 				}
 				
-				return false;
+				return true; // 폼 전송 시작
 			
 			});
 			
 		}); // 유효성 검증 끝
 	</script>
+	<script src="/Jboard1/js/checkUser.js"></script>
 </head>
 <body>
     <div id="container">
@@ -96,7 +150,10 @@
                         </tr>
                         <tr>
                             <td>비밀번호 확인</td>
-                            <td><input type="password" name="pass2" placeholder="비밀번호 확인 입력 "></td>
+                            <td>
+                            	<input type="password" name="pass2" placeholder="비밀번호 확인 입력 ">
+                            	<span class="resultPass"></span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -105,7 +162,10 @@
                     <tbody>
                         <tr>
                             <td>이름</td>
-                            <td><input type="text" name="name" placeholder="이름 입력"></td>
+                            <td>
+                           	 	<input type="text" name="name" placeholder="이름 입력">
+                           	 	<span class="resultName"></span>
+                            </td>
                         </tr>
                         <tr>
                             <td>별명</td>
@@ -125,7 +185,7 @@
                         <tr>
                             <td>휴대폰</td>
                             <td>
-                            	<input type="text" name="hp" placeholder="- 포함 13자리 입력 ">
+                            	<input type="text" name="hp" placeholder="- 포함 13자리 입력 " minlength="13" maxlength="13">
                             	<span id="resultHp"></span>
                             </td>
                         </tr>
@@ -138,7 +198,7 @@
                                     <button type ="button" class="btnZip" onclick="zipcode()"><img src="../images/chk_post.gif" alt="우편번호찾기"></button>
                                 </div>
                                 <div>
-                                    <input type="text" name="addr1" placeholder="주소를 검색하세요.">
+                                    <input type="text" name="addr1" placeholder="주소를 검색하세요." readonly>
                                 </div>
                                 <div> 
                                     <input type="text" name="addr2" placeholder="상세주소를 입력하세요.">
@@ -148,7 +208,7 @@
                     </tbody>
                 </table>
                 <div>
-                    <a href="#" class="btnCanel">취소</a>
+                    <a href="/Jboard1/user/login.jsp" class="btnCanel">취소</a>
                     <input type="submit" class="btnJoin" value="회원가입"/>
                 </div>
                 </form>
