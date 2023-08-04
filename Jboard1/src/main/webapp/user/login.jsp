@@ -14,7 +14,7 @@
         </header>
         <main>
             <section class="login">
-                <form action="#">
+                <form action="/Jboard1/user/loginProc.jsp" method ="post">
                     <table border="0">
                         <tr>
                             <td><img src="../images/login_ico_id.png" alt="아이디"></td>
@@ -22,7 +22,7 @@
                         </tr>
                         <tr>
                             <td><img src="../images/login_ico_pw.png" alt="패스워드"></td>
-                            <td><input type="text" name="pass" placeholder="패스워드 입력"></td>
+                            <td><input type="password" name="pass" placeholder="패스워드 입력"></td>
                         </tr>
                     </table>
                     <input type="submit" value="로그인" class="btnLogin">
