@@ -2,12 +2,15 @@ package kr.co.jboard1.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import kr.co.jboard1.db.DBHelper;
 import kr.co.jboard1.db.SQL;
+import kr.co.jboard1.vo.ArticleVO;
 import kr.co.jboard1.vo.TermsVo;
 import kr.co.jboard1.vo.UserVO;
 
@@ -43,8 +46,7 @@ public class UserDAO  extends DBHelper{
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	
 	public UserVO selectUser(String uid, String pass) {
 		
