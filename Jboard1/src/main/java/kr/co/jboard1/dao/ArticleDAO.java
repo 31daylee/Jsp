@@ -6,19 +6,19 @@ import java.util.List;
 
 import kr.co.jboard1.db.DBHelper;
 import kr.co.jboard1.db.SQL;
-import kr.co.jboard1.vo.ArticleVO;
+import kr.co.jboard1.dto.ArticleDTO;
 
 public class ArticleDAO extends DBHelper {
 	
 	
-	public void insertArticle(ArticleVO vo) {
+	public void insertArticle(ArticleDTO dto) {
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_ARTICLE);
-			psmt.setString(1, vo.getTitle());
-			psmt.setString(2, vo.getContent());
-			psmt.setString(3, vo.getWriter());
-			psmt.setString(4, vo.getRegip());
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getWriter());
+			psmt.setString(4, dto.getRegip());
 			psmt.executeUpdate();
 			close();
 		} catch (SQLException e) {
@@ -26,13 +26,13 @@ public class ArticleDAO extends DBHelper {
 		}
 		
 	}
-	public ArticleVO selectArticle(int no) {
+	public ArticleDTO selectArticle(int no) {
 		return null;
 	}
 	
-	public List<ArticleVO> selectArticles(int start) {
+	public List<ArticleDTO> selectArticles(int start) {
 		
-		List<ArticleVO> articles = new ArrayList<>();
+		List<ArticleDTO> articles = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
@@ -42,7 +42,7 @@ public class ArticleDAO extends DBHelper {
 			
 			
 			while(rs.next()) {
-				ArticleVO list = new ArticleVO();
+				ArticleDTO list = new ArticleDTO();
 				list.setNo(rs.getInt(1));
 				list.setParent(rs.getInt(2));
 				list.setComment(rs.getInt(3));
@@ -67,7 +67,7 @@ public class ArticleDAO extends DBHelper {
 	
 	
 	
-	public void updateArticle(ArticleVO vo) {}
+	public void updateArticle(ArticleDTO dto) {}
 	public void deleteArticle(int no) {}
 	
 	public int selectCountTotal() {

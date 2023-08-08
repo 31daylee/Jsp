@@ -1,9 +1,8 @@
 <%@page import="kr.co.jboard1.dao.ArticleDAO"%>
-<%@page import="kr.co.jboard1.vo.ArticleVO"%>
+<%@page import="kr.co.jboard1.dto.ArticleDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
@@ -12,18 +11,17 @@
 	String regip = request.getRemoteAddr();
 	
 
-	ArticleVO vo = new ArticleVO();
+	ArticleDTO dto = new ArticleDTO();
 	
-	vo.setTitle(title);
-	vo.setContent(content);
-	vo.setWriter(writer);
-	vo.setRegip(regip);
+	dto.setTitle(title);
+	dto.setContent(content);
+	dto.setWriter(writer);
+	dto.setRegip(regip);
 	
 	
+	ArticleDAO dao = new ArticleDAO();
+	dao.insertArticle(dto);
 	
-	ArticleDAO.getInstance().insertArticle(vo);
 	
 	response.sendRedirect("/Jboard1/list.jsp");
-
-
 %>

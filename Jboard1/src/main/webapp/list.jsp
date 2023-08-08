@@ -1,7 +1,7 @@
-<%@page import="kr.co.jboard1.vo.ArticleVO"%>
+<%@page import="kr.co.jboard1.dto.ArticleDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.co.jboard1.dao.ArticleDAO"%>
-<%@page import="kr.co.jboard1.vo.UserVO"%>
+<%@page import="kr.co.jboard1.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp"%>
 <%
@@ -52,7 +52,7 @@
 	pageStartNum = total - start;
 	
 	// 현재 페이지 게시물 조회
-	List<ArticleVO> articles = dao.selectArticles(start);
+	List<ArticleDTO> articles = dao.selectArticles(start);
 %>
 <main>
 	<section class="list">
@@ -67,7 +67,9 @@
 						<th>날짜</th>
 						<th>조회</th>
 					</tr>
-					<% for(ArticleVO article : articles){ %>
+					<%
+					for(ArticleDTO article : articles){
+					%>
 					<tr>
 						<td><%=pageStartNum-- %></td>
 						<td><a href="#"><%=article.getTitle() %>&nbsp;[<%=article.getComment() %>]</a></td>

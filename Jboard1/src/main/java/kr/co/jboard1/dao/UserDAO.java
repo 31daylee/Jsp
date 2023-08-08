@@ -10,9 +10,9 @@ import javax.sql.DataSource;
 
 import kr.co.jboard1.db.DBHelper;
 import kr.co.jboard1.db.SQL;
-import kr.co.jboard1.vo.ArticleVO;
-import kr.co.jboard1.vo.TermsVo;
-import kr.co.jboard1.vo.UserVO;
+import kr.co.jboard1.dto.ArticleDTO;
+import kr.co.jboard1.dto.TermsDTO;
+import kr.co.jboard1.dto.UserDTO;
 
 public class UserDAO  extends DBHelper{
 	
@@ -25,7 +25,7 @@ public class UserDAO  extends DBHelper{
 	
 	
 	
-	public void insertUser(UserVO vo) {
+	public void insertUser(UserDTO vo) {
 		
 		try{
 			conn = getConnection();
@@ -48,9 +48,9 @@ public class UserDAO  extends DBHelper{
 	}
 
 	
-	public UserVO selectUser(String uid, String pass) {
+	public UserDTO selectUser(String uid, String pass) {
 		
-		UserVO vo = null;
+		UserDTO vo = null;
 		
 		try{
 			conn = getConnection();
@@ -61,7 +61,7 @@ public class UserDAO  extends DBHelper{
 			rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				vo = new UserVO();
+				vo = new UserDTO();
 				vo.setUid(rs.getString(1));
 				vo.setPass(rs.getString(2));
 				vo.setName(rs.getString(3));
@@ -164,8 +164,8 @@ public class UserDAO  extends DBHelper{
 		}
 		return result;
 	}
-	public TermsVo selectTerms() {
-		TermsVo tVo = new TermsVo();
+	public TermsDTO selectTerms() {
+		TermsDTO tVo = new TermsDTO();
 		try{
 			conn = getConnection();
 			stmt = conn.createStatement();

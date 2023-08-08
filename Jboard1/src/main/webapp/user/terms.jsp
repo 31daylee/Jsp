@@ -1,6 +1,6 @@
 <%@page import="kr.co.jboard1.dao.UserDAO"%>
 <%@page import="java.sql.Statement"%>
-<%@page import="kr.co.jboard1.vo.TermsVo"%>
+<%@page import="kr.co.jboard1.dto.TermsDTO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
@@ -8,10 +8,7 @@
 <%@page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	
-	TermsVo tv = UserDAO.getInstance().selectTerms();
-
-	
+TermsDTO tv = UserDAO.getInstance().selectTerms();
 %>
 <!DOCTYPE html>
 <html lang="en">
