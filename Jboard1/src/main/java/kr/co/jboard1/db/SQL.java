@@ -36,7 +36,16 @@ public class SQL {
 												+"regip =?,"
 												+"rdate =NOW()";
 	
-	public static final String SELECT_ARTICLES = "SELECT * FROM `Article`";
+	public static final String SELECT_ARTICLES = "SELECT "
+												+ "a.*, "
+												+ "b.`nick` "
+												+ "FROM `Article` AS a "
+												+ "JOIN `User` AS b ON a.writer = b.uid "
+												+ "ORDER BY `no` DESC "
+												+ "LIMIT ?, 10";
+												
+	
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article`";
 	
 	
 	
