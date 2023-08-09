@@ -29,7 +29,7 @@ public class ArticleDAO extends DBHelper {
 		
 	}
 	public ArticleDTO selectArticle(String no) {
-		ArticleDTO dto = null;
+		ArticleDTO dto = new ArticleDTO();;
 		
 		try {
 			
@@ -40,7 +40,7 @@ public class ArticleDAO extends DBHelper {
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				
-				dto = new ArticleDTO();
+				
 				dto.setNo(rs.getInt("no"));
 				dto.setParent(rs.getInt("parent"));
 				dto.setComment(rs.getInt("comment"));
@@ -168,7 +168,9 @@ public class ArticleDAO extends DBHelper {
 		return comments;
 	}
 	
-	public void insertComment(ArticleDTO dto) {
+	public int insertComment(ArticleDTO dto) {
+		
+		int result = 0;
 		
 		try {
 			conn = getConnection();
@@ -177,12 +179,13 @@ public class ArticleDAO extends DBHelper {
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getWriter());
 			psmt.setString(4, dto.getRegip());
-			psmt.executeUpdate();
+			result = psmt.executeUpdate();
 			close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 	
 	
@@ -198,21 +201,35 @@ public class ArticleDAO extends DBHelper {
 			e.printStackTrace();
 		}
 	}
+	public void updateArticleForCommentMinus(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_MINUS);
+			psmt.setString(1, no);
+			psmt.executeUpdate();
+			close();
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
-	public void deleteComment(String no) {
-	
+	public int deleteComment(String no) {
+		
+		int result =0;
+		
 		try {
 			
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
 			psmt.setString(1, no);
-			psmt.executeUpdate();
+			result = psmt.executeUpdate();
 			
-			clone();
+			close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		
+		return result;
 	}
 }

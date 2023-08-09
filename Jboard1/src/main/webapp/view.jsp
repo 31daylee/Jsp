@@ -10,7 +10,7 @@
 	ArticleDAO dao = new ArticleDAO();
 	
 	// 원글 조회
-	ArticleDTO article = dao.selectArticle(no);
+	ArticleDTO dto = dao.selectArticle(no);
 	
 	
 	// 댓글 조회
@@ -44,9 +44,9 @@
                             <tbody>
                                 <tr>
                                <td>제목</td>
-                                    <td><input type="text" name="title" value="<%=article.getTitle() %>"></td>
+                                    <td><input type="text" name="title" value="<%=dto.getTitle() %>" readonly></td>
                                 </tr>
-                                <% if(article.getFile() > 0) {%>
+                                <% if(dto.getFile() > 0) {%>
                                 <tr>
                                     <td>첨부파일</td>
                                     <td><input type="text" name="title" value="2020년 상반기 매출자료.xls 7회 다운로드" ></td>
@@ -55,7 +55,7 @@
                             
                                 <tr>
                                     <td>내용</td>
-                                    <td><textarea name="content" readonly><%=article.getContent() %></textarea></td>
+                                    <td><textarea name="content" readonly><%=dto.getContent() %></textarea></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -79,7 +79,7 @@
                                 
                                 <% if(sessUser.getUid().equals(comment.getWriter())){ %>
                                 <div>
-                                    <a href="/Jboard1/proc/commentDelete.jsp?no=<%=comment.getNo() %>" class="del">삭제</a> <!-- id는 중복되면 안되기에 class사용 (현재 for 반복문에 위치) -->
+                                    <a href="/Jboard1/proc/commentDelete.jsp?no=<%=comment.getNo() %>&parent=<%=comment.getParent() %>" class="del">삭제</a> <!-- id는 중복되면 안되기에 class사용 (현재 for 반복문에 위치) -->
                                     <a href="#" class="mod">수정</a>
                                 </div>
                                 <% } %>
