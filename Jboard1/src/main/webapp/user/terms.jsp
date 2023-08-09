@@ -1,6 +1,6 @@
+<%@page import="kr.co.jboard1.dto.TermsDTO"%>
 <%@page import="kr.co.jboard1.dao.UserDAO"%>
 <%@page import="java.sql.Statement"%>
-<%@page import="kr.co.jboard1.dto.TermsDTO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
