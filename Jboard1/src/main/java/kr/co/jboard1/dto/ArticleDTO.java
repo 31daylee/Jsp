@@ -49,6 +49,9 @@ public class ArticleDTO {
 	public void setComment(int comment) {
 		this.comment = comment;
 	}
+	public void setComment(String comment) {
+		this.comment = Integer.parseInt(comment);
+	}
 	public String getCate() {
 		return cate;
 	}

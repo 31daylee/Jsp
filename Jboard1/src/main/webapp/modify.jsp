@@ -14,15 +14,16 @@
 		<h3>글수정</h3>
 		<article>
 			<form action="/Jboard1/proc/updateProc.jsp" method="post">
+				<input type="hidden" name="no" value="<%= no%>">
 				<table border="1">
 					<tbody>
 						<tr>
 							<td>제목</td>
-							<td><input type="text" name="title" placeholder="제목을 입력하세요."></td>
+							<td><input type="text" name="title" value="<%= dto.getTitle() %>" placeholder="제목을 입력하세요."></td>
 						</tr>
 						<tr>
 							<td>내용</td>
-							<td><textarea name="content"></textarea></td>
+							<td><textarea name="content"><%= dto.getContent() %></textarea></td>
 						</tr>
 						<tr>
 							<td>첨부</td>
@@ -31,8 +32,8 @@
 					</tbody>
 				</table>
 				<div>
-					<a href="./list.html" class="btnCancel">취소</a> <input type="submit"
-						class="btnWrite" value="수정완료">
+					<a href="/Jboard1/view.jsp?no=<%= no %>" class="btnCancel">취소</a>
+					<input type="submit" class="btnWrite" value="수정완료">
 				</div>
 			</form>
 		</article>
