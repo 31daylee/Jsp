@@ -502,7 +502,7 @@ form {
     padding: 20px 0;
     text-align: center;
 }
-.commentForm > form > textarea {
+.view > .commentForm > form > textarea {
     width: 100%;
     height: 60px;
     border: 1px solid #e4eaec;

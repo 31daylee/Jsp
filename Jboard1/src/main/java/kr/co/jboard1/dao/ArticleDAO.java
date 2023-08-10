@@ -11,7 +11,7 @@ import kr.co.jboard1.dto.ArticleDTO;
 
 public class ArticleDAO extends DBHelper {
 	
-	
+	// 기본 CRUD
 	public void insertArticle(ArticleDTO dto) {
 		try {
 			conn = getConnection();
@@ -79,21 +79,21 @@ public class ArticleDAO extends DBHelper {
 			
 			
 			while(rs.next()) {
-				ArticleDTO list = new ArticleDTO();
-				list.setNo(rs.getInt(1));
-				list.setParent(rs.getInt(2));
-				list.setComment(rs.getInt(3));
-				list.setCate(rs.getString(4));
-				list.setTitle(rs.getString(5));
-				list.setContent(rs.getString(6));
-				list.setFile(rs.getInt(7));
-				list.setHit(rs.getInt(8));
-				list.setWriter(rs.getString(9));
-				list.setRegip(rs.getString(10));
-				list.setRdate(rs.getString(11));
-				list.setNick(rs.getString(12));
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setCate(rs.getString(4));
+				dto.setTitle(rs.getString(5));
+				dto.setContent(rs.getString(6));
+				dto.setFile(rs.getInt(7));
+				dto.setHit(rs.getInt(8));
+				dto.setWriter(rs.getString(9));
+				dto.setRegip(rs.getString(10));
+				dto.setRdate(rs.getString(11));
+				dto.setNick(rs.getString(12));
 				
-				articles.add(list);
+				articles.add(dto);
 			}
 			close();
 			
@@ -104,9 +104,39 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	
-	
-	public void updateArticle(ArticleDTO dto) {}
-	public void deleteArticle(int no) {}
+	// 게시글 수정
+	public void updateArticle(ArticleDTO dto) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setInt(3, dto.getNo());
+			psmt.executeUpdate();
+			close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	// 게시글 삭제 
+	public void deleteArticle(String no) {
+		
+		try {
+			conn =  getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	// 추가
 	public int selectCountTotal() {
@@ -192,7 +222,7 @@ public class ArticleDAO extends DBHelper {
 	public void updateArticleForComment(String no) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT);
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_PLUS);
 			psmt.setString(1, no);
 			psmt.executeUpdate();
 			close();
@@ -224,8 +254,8 @@ public class ArticleDAO extends DBHelper {
 			psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
 			psmt.setString(1, no);
 			result = psmt.executeUpdate();
-			
 			close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
