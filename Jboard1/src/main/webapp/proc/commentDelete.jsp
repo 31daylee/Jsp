@@ -1,6 +1,5 @@
-<%@page import="kr.co.jboard1.dto.ArticleDTO"%>
-<%@page import="java.sql.Connection"%>
 <%@page import="kr.co.jboard1.dao.ArticleDAO"%>
+<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
