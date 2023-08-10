@@ -249,7 +249,7 @@ public class ArticleDAO extends DBHelper {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
 			psmt.setString(1, dto.getContent());
-			psmt.setInt(1, dto.getNo());
+			psmt.setInt(2, dto.getNo());
 			psmt.executeUpdate();
 			close();
 			
