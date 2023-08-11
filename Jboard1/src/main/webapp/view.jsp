@@ -19,6 +19,10 @@
 <script>
 	
 	$(function(){
+		
+		// 댓글 내용 전역변수
+		let comment = '';
+		
 		// 댓글 수정
 		$('.mod').click(function(e){
 			e.preventDefault();
@@ -26,6 +30,7 @@
 			const txt = $(this).text();
 			
 			if(txt == '수정'){
+				// 수정모드 전환
 				$(this).parent().prev().addClass('modi');
 				$(this).parent().prev().attr('readonly', false);
 				$(this).parent().prev().focus();
@@ -33,6 +38,9 @@
 				$(this).prev().show();
 			}else{
 				// 수정완료 클릭
+				if(confirm('정말 수정 하시겠습니까?')){
+					$(this).closest('form').submit();
+				}
 				// 수정 데이터 전송
 				$(this).closest('form').submit();
 				
@@ -43,6 +51,19 @@
 				$(this).prev().hide();
 			}
 		});
+		
+		// 댓글 수정 취소
+		/*
+		$('.can').click(function(e){
+			e.preventDefault();
+
+			$(this).parent().prev().removeClass('modi');
+			$(this).parent().prev().attr('readonly',true);
+			$(this).hide();
+			$(this).next().text('수정');
+		
+		})
+		*/
 		
 		// 댓글 삭제
 		$('.del').click(function(){
@@ -121,6 +142,8 @@
 		                     <% for(ArticleDTO comment : comments){%>       
                             <article class="comment">
 	                            <form action="/Jboard1/proc/commentUpdate.jsp" method="post">
+	                            	<input type="hidden" name ="no" value="<%=comment.getNo()%>">
+	                            	<input type="hidden" name ="parent" value="<%=comment.getParent()%>">
 	                                <span>
 	                                    <span><%= comment.getNick() %></span>
 	                                    <span><%= comment.getRdate() %></span>
@@ -130,8 +153,8 @@
 	                                <% if(sessUser.getUid().equals(comment.getWriter())){ %>
 	                                <div>
 	                                    <a href="/Jboard1/proc/commentDelete.jsp?no=<%=comment.getNo()%>&parent=<%=comment.getParent()%>" class="del">삭제</a> <!-- id는 중복되면 안되기에 class사용 (현재 for 반복문에 위치) -->
-	                                    <a href="#" class="can">취소</a>
-	                                    <a href="/Jboard1/proc/commentUpdate.jsp?no=<%=comment.getNo()%>&parent=<%=comment.getParent()%>" class="mod">수정</a>
+	                                    <a href="/Jboard1/view.jsp?no=<%=no %>" class="can">취소</a>
+	                                    <a href="#" class="mod">수정</a>
 	                                </div>
 	                                <% } %>
 	                            </form>
