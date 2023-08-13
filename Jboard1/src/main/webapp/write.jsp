@@ -6,8 +6,7 @@
 		<h3>글쓰기</h3>
 		<article>
 			<form action="/Jboard1/proc/writeProc.jsp" method="post">
-				<input type="hidden" name="writer" readonly
-					value="<%=sessUser.getUid()%>" />
+				<input type="hidden" name="writer" readonly value="<%=sessUser.getUid()%>" />
 				<table border="1">
 					<tbody>
 						<tr>
@@ -26,8 +25,8 @@
 					</tbody>
 				</table>
 				<div>
-					<a href="./list.jsp" class="btnCancel">취소</a> <input type="submit"
-						class="btnWrite" value="작성완료">
+					<a href="./list.jsp" class="btnCancel">취소</a>
+					<input type="submit" class="btnWrite" value="작성완료">
 				</div>
 			</form>
 		</article>
