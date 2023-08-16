@@ -77,6 +77,7 @@ public class UserDAO  extends DBHelper{
 				vo.setLeaveDate(rs.getString(13));
 				
 			}
+			
 			close();
 		
 		}catch(Exception e){

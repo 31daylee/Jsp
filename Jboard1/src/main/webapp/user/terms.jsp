@@ -8,7 +8,7 @@
 <%@page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-TermsDTO tv = UserDAO.getInstance().selectTerms();
+	TermsDTO tv = UserDAO.getInstance().selectTerms();
 %>
 <!DOCTYPE html>
 <html lang="en">
