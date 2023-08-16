@@ -12,6 +12,7 @@ import kr.co.jboard1.dto.ArticleDTO;
 public class ArticleDAO extends DBHelper {
 	
 	// 기본 CRUD
+	// 글쓰기
 	public void insertArticle(ArticleDTO dto) {
 		try {
 			conn = getConnection();
@@ -139,6 +140,7 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	// 추가
+	// 페이지 생성에서 전체 게시물 수 구하기 
 	public int selectCountTotal() {
 		
 		int total = 0;
