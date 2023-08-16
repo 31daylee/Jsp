@@ -1,0 +1,215 @@
+/*초기화*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font: normal 12px '고딕';
+}
+
+ul, ol {list-style: none;}
+a {text-decoration: none; color: #111;}
+input, textarea{outline: none;}
+
+#container{
+    width: 980px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+/*헤더*/
+header{
+    width: 100%;
+    height: auto;
+    background-image: url('../images_admin/admin_bg.jpg');
+    padding: 12px;
+    box-sizing: border-box;
+}
+header > p {
+    float: right;
+}
+header > p > a {
+    color: #fff;
+}
+
+/*푸터*/
+footer{
+    width: 100%;
+    height: auto;
+    background-color: #353535;
+    padding: 12px;
+    box-sizing: border-box;
+}
+footer > p {
+    color: #fff;
+}
+
+
+/*메인*/
+main {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+/*aside*/
+main > aside {
+    float: left;
+    width: 176px;
+    height: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+main > aside > h3 {
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: rgb(229,229,229);
+    border: 1px solid rgb(204,204,204);
+    font-size: 14px;
+}
+main > aside > ul {
+    padding: 16px;
+    box-sizing: border-box;
+}
+main > aside > ul > li {
+    line-height: 22px;
+}
+main > aside > ul > li.on > a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/*section*/
+main > section {
+    float: right;
+    width: 804px;
+    min-height: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+/*section_nav*/
+main > section > nav > h3 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #3f3f3f;
+}
+
+/*admin_index*/
+main > section > article {
+    margin-top: 12px;
+}
+main > section > article > h3 {
+    margin: 8px 0;
+}
+main > section > article > h3 > .more{
+    float: right;
+}
+main > section > article table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #333;
+}
+main > section > article table tr {
+    border-bottom: 1px dotted #999;
+}
+main > section > article table tr > th {
+    padding: 12px;
+    background-color: #fbfbfb;
+}
+main > section > article table tr > td {
+    padding: 12px;
+    text-align: center;
+}
+
+
+/*admin_productList*/
+#productList table .thumb {
+    width: 60px;
+}
+#productList > article > p {
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#productList .productDelete {
+    float: left;
+}
+#productList .productRegister {
+    float: right;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+#productList .paging {
+    text-align: center;
+}
+#productList .paging > .on {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+/*admin_productRegister*/
+#productRegister table tr > td {
+    text-align: left;
+}
+#productRegister table tr > td:first-child {
+    width: 12%;
+}
+#productRegister table tr > td > label {
+    margin-right: 16px;
+}
+#productRegister table tr > td > p {
+    margin-bottom: 8px;
+}
+#productRegister table tr > td > p > span {
+    display: block;
+    margin-bottom: 2px;
+}
+#productRegister form > p {
+    margin: 12px 0;
+    text-align: center;
+}
+#productRegister form .btnCancel {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+#productRegister form input[type=submit] {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+
+/*admin_orderList*/
+#orderList > article > p {
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#orderList .productDelete {
+    float: left;
+}
+#orderList .paging {
+    text-align: center;
+}
+#orderList .paging > .on {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/*admin_userList*/
+#userList > article > p {
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#userList .productDelete {
+    float: left;
+}
+#userList .paging {
+    text-align: center;
+}
+#userList .paging > .on {
+    font-weight: bold;
+    text-decoration: underline;
+}
