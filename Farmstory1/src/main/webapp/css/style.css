@@ -611,6 +611,352 @@ input[type=number]{
 #sub > .community > aside > .lnb > li:nth-child(5).on > a{background-image: url('../images/sub_cate5_lnb5_ov.png');}
 
 
+/*Jboard 스타일 가져오기*/
+/*list*/
+.list{
+    position: relative;
+    width: 720px;
+    margin: 60px auto;
+}
+.list table {
+    width: 100%;
+    border-top: 2px solid #111;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 6px;
+}
+.list table th {
+    padding: 12px;
+    border-top: 1px solid #d1dee2;
+    border-bottom: 1px solid #d1dee2;
+    background-color: #e5ecef;
+    color: #383838;
+}
+.list > article > table tr > td:nth-child(1){
+    width: 50px;
+    text-align: center;
+    background-color: #fff;
+}
+a {
+    text-decoration: none;
+    color: #111;
+}
+.list table td {
+    padding: 12px 6px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+.list > article > table tr > td:nth-child(2){
+    width: auto;
+    text-align: left;
+}
+.list > article > table tr > td:nth-child(3){
+    width: 100px;
+    text-align: center;
+}
+.list > article > table tr > td:nth-child(4){
+    width: 100px;
+    text-align: center;
+}
+.list > article > table tr > td:nth-child(5){
+    width: 50px;
+    text-align: center;
+}
+.paging {
+    padding: 20px;
+    text-align: center;
+}
+.paging > a {
+    padding: 8px;
+    background-color: #f2f2f2;
+    border: 1px solid #d7d7d7;
+}
+.paging > .current {
+    border: 1px solid #6d6d6d;
+    background-color: #888;
+    color: #fff;
+}
+
+.list .btnWrite{
+    position: absolute;
+    bottom: 14px;
+    right: 0;
+    padding: 7px;
+    border: 1px solid #3b3c3f;
+    background-color: #4b545e;
+    color: #fff;
+}
+
+/*write*/
+.write {
+    width: 720px;
+    margin: 60px auto;
+}
+form {
+    display: block;
+}
+.write table {
+    width: 100%;
+    border-top: 2px solid #111 ;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 6px;
+}
+.write table td:nth-child(1) {
+    width: 100px;
+    backdrop-filter: #f5f8f9;
+    text-align: center;
+}
+table td {
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+.write table td {
+    padding: 12px 6px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+.write table input {
+    width: 100%;
+    height: 24px;
+    border: 0;
+}
+.write table textarea {
+    width: 100%;
+    height: 280px;
+    resize: none;
+    border: 0;
+}
+.btnCancel {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: 111;
+}
+.write form > div {
+    margin-top: 10px;
+    text-align: right;
+}
+.write .btnWrite {
+    padding: 7px;
+    border: 1px solid #3b3c3f;
+    background-color: #4b545e;
+    color: #fff;
+}
+div {
+    display: block;
+}
+.write td:nth-child(1){
+    width: 100px;
+    background: #f5f8f9;
+    text-align: center;
+}
+
+/*view*/
+.view {
+	position: relative;
+    width: 720px;
+    margin: 60px auto;
+}
+
+.view table {
+    width: 100%;
+    border-top: 2px solid #111 ;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 6px;
+}
+.view table td:nth-child(1) {
+    width: 100px;
+    backdrop-filter: #f5f8f9;
+    text-align: center;
+}
+.view table td {
+    padding: 12px 6px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+.view table input {
+    width: 100%;
+    height: 24px;
+    border: 0;
+}
+.view table textarea {
+    width: 100%;
+    height: 280px;
+    resize: none;
+    border: 0;
+}
+.btnCancel {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: 111;
+}
+.view form > div {
+    margin-top: 10px;
+    text-align: right;
+}
+.view .btnWrite {
+    padding: 7px;
+    border: 1px solid #3b3c3f;
+    background-color: #4b545e;
+    color: #fff;
+}
+
+.commentList {
+    padding: 20px;
+    border: 1px solid #e3dee3;
+    background-color: #f9f9f9;
+    margin-bottom: 16px;
+}
+.commentForm {
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    background-color: #f9f9f9;
+    margin-bottom: 16px;
+}
+.view section > h3 {
+    font-weight: bold;
+}
+.commentList > article {
+    border-top: 1px dotted #999;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.commentList > article textarea {
+    width: 100%;
+    height: 60px;
+    padding: 6px;
+    box-sizing: border-box;
+    resize: none;
+    border: 0;
+    background: transparent;
+}
+.commentList > article textarea.modi {
+	border: 1px solid #bbb;
+	background: white;	
+}
+.commentList > article div {
+    text-align: right;
+}
+.commentList > article div > .can {
+	display: none;
+}
+
+.empty {
+    padding: 20px 0;
+    text-align: center;
+}
+.commentForm > form > textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #e4eaec;
+    margin: 10px 0;
+    resize: none;
+
+}
+.commentForm > form > div {
+    text-align: right;
+}
+.view .btnCancel {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: #111;
+}
+.view  div {
+    padding: 16px 0;
+    text-align: right;
+}
+.view .btnDelete {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: #111;
+}
+.view .btnModify {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: #111;
+}
+.view .btnList {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: #111;
+}
+.view td:nth-child(1){
+    width: 100px;
+    background: #f5f8f9;
+    text-align: center;
+}
+
+/*modify*/
+.modify {
+    width: 720px;
+    margin: 60px auto;
+}
+form {
+    display: block;
+}
+.modify table {
+    width: 100%;
+    border-top: 2px solid #111 ;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 6px;
+}
+.modify table td:nth-child(1) {
+    width: 100px;
+    backdrop-filter: #f5f8f9;
+    text-align: center;
+}
+.modify table td {
+    padding: 12px 6px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+.modify table input {
+    width: 100%;
+    height: 24px;
+    border: 0;
+}
+.modify table textarea {
+    width: 100%;
+    height: 280px;
+    resize: none;
+    border: 0;
+}
+.btnCancel {
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background-color: #fdfdfd;
+    color: 111;
+}
+.modify form > div {
+    margin-top: 10px;
+    text-align: right;
+}
+.modify .btnWrite {
+    padding: 7px;
+    border: 1px solid #3b3c3f;
+    background-color: #4b545e;
+    color: #fff;
+}
+div {
+    display: block;
+}
+.modify td:nth-child(1){
+    width: 100px;
+    background: #f5f8f9;
+    text-align: center;
+}
+
+
+
+
 /* 버튼 공통 */
 .btnNext   { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #e9e9e9; color: #111;}
 .btnSubmit { display: inline-block; padding: 7px; border: 1px solid #bebebe; background: #e9e9e9; color: #111;}
@@ -619,3 +965,15 @@ input[type=number]{
 .btnDelete { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
 .btnModify { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
 .btnList   { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
+
+
+
+
+
+
+
+
+
+
+
+
