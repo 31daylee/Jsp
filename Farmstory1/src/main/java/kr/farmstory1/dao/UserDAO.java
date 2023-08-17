@@ -34,6 +34,7 @@ public class UserDAO extends DBHelper{
 		return dto;
 	}
 	
+	// 사용자 로그인 시 데이터 조회
 	public UserDTO selectUser(String uid, String pass) {
 		
 		UserDTO dto = null;
