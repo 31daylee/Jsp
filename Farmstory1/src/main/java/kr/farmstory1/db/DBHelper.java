@@ -32,13 +32,13 @@ public class DBHelper {
 	
 	public void close() throws SQLException {
 		if(conn != null) {
-			rs.close();
+			conn.close();
 		}
 		if(psmt != null) {
-			rs.close();
+			psmt.close();
 		}
 		if(stmt != null) {
-			rs.close();
+			stmt.close();
 		}
 		if(rs != null) {
 			rs.close();

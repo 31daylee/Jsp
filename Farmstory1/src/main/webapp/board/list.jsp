@@ -4,6 +4,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String group = request.getParameter("group");
 	String cate = request.getParameter("cate");
+	String pg = request.getParameter("pg");
 	
 	pageContext.include("./_aside"+group+".jsp");
 

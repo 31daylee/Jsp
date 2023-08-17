@@ -24,8 +24,20 @@ public class SQL {
 
 
 
+	//////////////////////////////////////////////////
+	//////////////////////Article/////////////////////
+	
+	public static final String INSERT_ARTICLE = "INSERT INTO `Article` SET "
+												+"`cate`=?, "
+												+"`title`=?, "
+												+"`writer`=?, "
+												+"`content`=?, "
+												+"`regip`=?, "
+												+"`rDate`=NOW()";
 
 
 
+	
+	
 
 }
