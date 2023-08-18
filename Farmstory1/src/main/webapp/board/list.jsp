@@ -31,7 +31,7 @@
 	start = (currentPage - 1) * 10;
 	
 	// 전체 게시물 갯수 조회
-	//total = dao.selectCountTotal(cate);
+	total = dao.selectCountTotal(cate);
 	
 	// 페이지 번호 계산
 	if(total % 10 == 0){
@@ -75,9 +75,9 @@
 							<tr>
 								<td><%= pageStartNum-- %></td>
 								  <td><a href="./view.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= article.getNo() %>"><%= article.getTitle() %></a>&nbsp;[<%= article.getComment() %>]</td>
-								<td>김사과</td>
-								<td>20-12-15</td>
-								<td>3</td>
+								<td><%= article.getNick() %></td>
+								<td><%= article.getRdate() %></td>
+								<td><%= article.getHit() %></td>
 							</tr>
 							 <% } %>
 						</tbody>

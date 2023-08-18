@@ -29,6 +29,25 @@ public class ArticleDAO extends DBHelper {
 		}
 		
 	}
+	// 댓글 쓰기
+	public void insertComment(ArticleDTO dto) {
+		
+		try{
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
+			psmt.setInt(1, dto.getParent());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getWriter());
+			psmt.setString(4, dto.getRegip());
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
 	
 	// 게시물 글목록에 나타내기
 	public List<ArticleDTO> selectArticles(String cate, int start) {
@@ -66,6 +85,46 @@ public class ArticleDAO extends DBHelper {
 		return articles;
 	}
 	
+	// 댓글 목록 보기 하기 !!! 
+	public List<ArticleDTO> selectComments(String parent) {
+		
+		List<ArticleDTO> comments = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COMMENTS);
+			psmt.setString(1, parent);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setCate(rs.getString(4));
+				dto.setTitle(rs.getString(5));
+				dto.setContent(rs.getString(6));
+				dto.setFile(rs.getInt(7));
+				dto.setHit(rs.getInt(8));
+				dto.setWriter(rs.getString(9));
+				dto.setRegip(rs.getString(10));
+				dto.setRdate(rs.getString(11));
+				dto.setNick(rs.getString(12));
+				
+				comments.add(dto);
+			}
+			
+			close();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return comments;
+	}
+	
 	// 글보기 
 	
 	public ArticleDTO selectArticle(String no) {
@@ -101,6 +160,66 @@ public class ArticleDAO extends DBHelper {
 		return dto;
 	}
 	
+	// 게시물 전체 수 조회
+	public int selectCountTotal(String cate) {
+		
+		int total = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_TOTAL);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			close();			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return total;
+	}
+	
+	// UPDATE
+	// 글 수정 
+	public void updateArticle(ArticleDTO dto) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setInt(3, dto.getNo());
+			psmt.executeUpdate();
+			
+			close();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+	
+	// DELETE
+	public void deleteArticle(String no) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	
 }
