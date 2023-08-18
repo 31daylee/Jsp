@@ -1,22 +1,7 @@
 <%@page import="kr.farmstory1.dao.UserDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-	String uid = request.getParameter("uid");
-	String pass = request.getParameter("pass");
-	
-	UserDTO dto = UserDAO.getInstance().selectUser(uid, pass);
-	
-	if(dto != null){
-		session.setAttribute("sessUser", dto);
-		
-		response.sendRedirect("/Farmstory1");
-		
-	}else{
-		response.sendRedirect("/Farmstory1/user/login.jsp?success=100");
-	}
-%>
+
         <div id="user">
              <section class="login">
                 <form action="/Farmstory1/user/loginProc.jsp" method ="post">
