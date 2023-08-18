@@ -75,4 +75,11 @@ public class SQL {
 	// DELETE
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 
+	
+	public final static String SELECT_LATESTS = "SELECT `no`,`title`,`rdate` "
+												+ "FROM `Article` "
+												+ "WHERE `parent`=0 AND `cate`=? "
+												+ "Order BY `no` DESC LIMIT ?";
+			
+	
 }

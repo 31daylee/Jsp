@@ -9,6 +9,8 @@ import kr.farmstory1.dto.ArticleDTO;
 
 public class ArticleDAO extends DBHelper {
 	
+	
+	//////////////////INSERT/////////////////////
 	// 글쓰기
 	public void insertArticle(ArticleDTO dto) {
 		
@@ -49,6 +51,8 @@ public class ArticleDAO extends DBHelper {
 		
 	}
 	
+	
+	/////////////////SELECT/////////////////////
 	// 게시물 글목록에 나타내기
 	public List<ArticleDTO> selectArticles(String cate, int start) {
 		
@@ -126,7 +130,6 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	// 글보기 
-	
 	public ArticleDTO selectArticle(String no) {
 		
 		ArticleDTO dto = null;
@@ -181,7 +184,38 @@ public class ArticleDAO extends DBHelper {
 		return total;
 	}
 	
-	// UPDATE
+	// 메인 홈페이지(index)에서 최신순으로 글보기
+	public List<ArticleDTO> selectLatests(String cate, int size) {
+		List<ArticleDTO> latests = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_LATESTS);
+			psmt.setString(1, cate);
+			psmt.setInt(2, size);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setRdate(rs.getString(3));
+				latests.add(dto);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return latests;
+	}
+
+	
+	
+	//////////////INSERT///////////////////////
 	// 글 수정 
 	public void updateArticle(ArticleDTO dto) {
 		
@@ -203,7 +237,10 @@ public class ArticleDAO extends DBHelper {
 	
 	}
 	
-	// DELETE
+	
+	
+	
+	//////////////DELETE///////////////////////
 	public void deleteArticle(String no) {
 		
 		try {
