@@ -11,7 +11,7 @@
 	
 	// 로그인 여부 확인
 	if(sessUser == null){
-		response.sendRedirect("/Farmstory1/board/list.jsp?success=101&target=view&group="+group+"&cate="+cate+"&no"+no);
+		response.sendRedirect("/Farmstory1/user/login.jsp?success=101&target=view&group="+group+"&cate="+cate+"&no"+no);
 		return;
 	}
 	
@@ -65,32 +65,39 @@
 				        </tr>
 				    </table>
 				    <div>
+				     	<% if(sessUser.getUid().equals(dto.getWriter())){ %>
 				        <a href="./delete.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnDelete">삭제</a>
 				        <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnModify">수정</a>
+				         <% } %>
 				        <a href="./list.jsp?group=<%= group %>&cate=<%= cate %>" class="btnList">목록</a>
 				    </div>
-				    
 				    <!-- 댓글리스트 -->
 				    <section class="commentList">
 				        <h3>댓글목록</h3>
+				        <% for(ArticleDTO comment : comments){ %>
 				        <article class="comment">
 				        	<form action="#" method="post">
 				        		<input type="hidden" name="no"     value="">
 				        		<input type="hidden" name="parent" value="">
 				             <span>
-				                 <span></span>
-				                 <span></span>
+				                 <span><%= comment.getNick() %></span>
+				                 <span><%= comment.getRdate() %></span>
 				             </span>
-				             <textarea name="comment" readonly></textarea>
+				             <textarea name="comment" readonly><%= comment.getContent() %></textarea>
+				             <% if(sessUser.getUid().equals(comment.getWriter())){ %>
 				             <div>
 				                 <a href="#" class="del">삭제</a>
 				                 <a href="#" class="can">취소</a>
 				                 <a href="#" class="mod">수정</a>
-				             </div>                
+				             </div>   
+				             
+				             <% } %>             
 				            </form>
 				        </article>
-				        
+				         <% } %> 
+				         <% if(comments.isEmpty()){ %>
 				        <p class="empty">등록된 댓글이 없습니다.</p>
+				        <% } %> 
 				    </section>
 				
 				    <!-- 댓글입력폼 -->

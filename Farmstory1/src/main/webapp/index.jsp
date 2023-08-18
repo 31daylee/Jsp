@@ -42,7 +42,7 @@
 				<% for(ArticleDTO latest : latests1){ %>
 				<tr>
 					<td>></td>
-					<td><a href="/Farmstory1/board/list.jsp?cate=grow&no="+<%=latest.getNo()%>><%=latest.getTitle() %></a></td>
+					<td><a href="/Farmstory1/board/view.jsp?group=Croptalk&cate=grow&no=<%=latest.getNo()%>"><%=latest.getTitle() %></a></td>
 					<td><%=latest.getRdate() %></td>
 				</tr>
 				<% } %>
@@ -55,7 +55,7 @@
 				<% for(ArticleDTO latest : latests2){ %>
 				<tr>
 					<td>></td>
-					<td><a href="#"><%=latest.getTitle() %></a></td>
+					<td><a href="/Farmstory1/board/view.jsp?group=Croptalk&cate=school&no=<%=latest.getNo()%>"><%=latest.getTitle() %></a></td>
 					<td><%=latest.getRdate() %></td>
 				</tr>
 				<% } %>
@@ -69,7 +69,7 @@
 				<% for(ArticleDTO latest : latests3){ %>
 				<tr>
 					<td>></td>
-					<td><a href="#"><%=latest.getTitle() %></a></td>
+					<td><a href="/Farmstory1/board/view.jsp?group=Croptalk&cate=story&no=<%=latest.getNo()%>"><%=latest.getTitle() %></a></td>
 					<td><%=latest.getRdate() %></td>
 				</tr>
 				<% } %>
@@ -111,21 +111,21 @@
                     <div id="tabs-1">
                         <ul class="txt">
                         	<% for(ArticleDTO tabLatest : tabLatests1){ %>
-							<li><a href="#"></a><%=tabLatest.getTitle() %></li>
+							<li><a href="/Farmstory1/board/view.jsp?group=Community&cate=notice&no=<%=tabLatest.getNo()%>">·<%=tabLatest.getTitle() %></a></li>
 							<% } %>
                         </ul>
                     </div>
                     <div id="tabs-2">
                         <ul class="txt">
                             <% for(ArticleDTO tabLatest : tabLatests2){ %>
-							<li><a href="#"></a><%=tabLatest.getTitle() %></li>
+							<li><a href="/Farmstory1/board/view.jsp?group=Community&cate=qna&no=<%=tabLatest.getNo()%>">·<%=tabLatest.getTitle() %></a></li>
 							<% } %>
                         </ul>
                     </div>
                     <div id="tabs-3">
                         <ul class="txt">
                        		<% for(ArticleDTO tabLatest : tabLatests3){ %>
-							<li><a href="#"></a><%=tabLatest.getTitle() %></li>
+							<li><a href="/Farmstory1/board/view.jsp?group=Community&cate=faq&no=<%=tabLatest.getNo()%>">·<%=tabLatest.getTitle() %></a></li>
 							<% } %>
                         </ul>
                     </div>

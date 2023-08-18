@@ -60,7 +60,7 @@ public class SQL {
 												+"`content`=?, "
 												+"`regip`=?, "
 												+"`rDate`=NOW()";
-
+	
 	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "
 												+"`parent` =?, "
 												+"`content` =?, "
@@ -75,6 +75,10 @@ public class SQL {
 	// DELETE
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 
+	
+	
+	//////////////////////////////////////////////////
+	///////////////////////Index//////////////////////
 	
 	public final static String SELECT_LATESTS = "SELECT `no`,`title`,`rdate` "
 												+ "FROM `Article` "
