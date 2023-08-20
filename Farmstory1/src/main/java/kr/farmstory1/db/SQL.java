@@ -23,7 +23,21 @@ public class SQL {
 											+ "`addr2`=?,"
 											+ "`regip`=?,"
 											+ "`regDate`=NOW()";
-
+	
+	
+	// UPDATE
+	public static final String UPDATE_USER = "UPDATE `User` SET "
+											+ "`pass`=SHA2(?,256), "
+											+ "`name`=?,"
+											+ "`nick`=?,"
+											+ "`email`=?,"
+											+ "`hp`=?,"
+											+ "`zip`=?,"
+											+ "`addr1`=?,"
+											+ "`addr2`=?,"
+											+ "`regip`=? "
+											+ "WHERE `uid`=? ";
+											
 
 
 
@@ -70,10 +84,14 @@ public class SQL {
 												
 	// UPDATE
 	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?,`content`=? WHERE `no`=?";
+	public static final String UPDATE_COMMENT = "UPDATE `Article` SET `content`=? WHERE `no`=?";
+	public static final String UPDATE_ARTICLE_FOR_COMMENT_PLUS = "UPDATE `Article` SET `comment`= `comment` + 1 WHERE `no`=?";
+	public static final String UPDATE_ARTICLE_FOR_COMMENT_MINUS = "UPDATE `Article` SET `comment`= `comment` - 1 WHERE `no`=?";
 	
 	
 	// DELETE
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
+	public static final String DELETE_COMMENT = "DELETE FROM `Article` WHERE `no`=?";
 
 	
 	

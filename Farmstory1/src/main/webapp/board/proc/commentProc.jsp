@@ -18,9 +18,16 @@
 	dto.setRegip(regip);
 	
 	ArticleDAO dao = new ArticleDAO();
-	dao.insertComment(dto);
 	
-
+	// 댓글 업로드의 개수에 따라 댓글 카운트 변경
+	int result = dao.insertComment(dto);
+	
+	
+	
+	// 댓글 카운트 수정
+	if(result >=1){
+		dao.updateArticleForCommentPlus(parent);
+	}
 	
 	response.sendRedirect("/Farmstory1/board/view.jsp?group="+group+"&cate="+cate+"&no="+parent);
 

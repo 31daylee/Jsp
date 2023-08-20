@@ -95,4 +95,26 @@ public class UserDAO extends DBHelper{
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateUser(UserDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_USER);
+			psmt.setString(1,dto.getPass());
+			psmt.setString(2,dto.getName());
+			psmt.setString(3,dto.getNick());
+			psmt.setString(4,dto.getEmail());
+			psmt.setString(5,dto.getHp());
+			psmt.setString(6,dto.getZip());
+			psmt.setString(7,dto.getAddr1());
+			psmt.setString(8,dto.getAddr2());
+			psmt.setString(9,dto.getRegip());
+			psmt.setString(10,dto.getUid());
+			psmt.executeUpdate();
+			
+			close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

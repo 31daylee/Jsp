@@ -2,6 +2,7 @@
 <%@page import="kr.farmstory1.dao.UserDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	
 	request.setCharacterEncoding("UTF-8");
 
 	String uid = request.getParameter("uid");
@@ -14,13 +15,16 @@
 	UserDAO dao = UserDAO.getInstance();
 	UserDTO user = dao.selectUser(uid,pass);
 	
+	
 	if(user != null){
 		
 		session.setAttribute("sessUser", user);
 
-	
+		// write 페이지에서 들어온 경우 write 페이지로 이동
 		if(target.equals("write")){
 			response.sendRedirect("/Farmstory1/board/write.jsp?group="+group+"&cate="+cate); //write의 파라미터
+		
+		// view 페이지에서 들어온 경우 view 페이지로 이동
 		}else if(target.equals("view")){
 			response.sendRedirect("/Farmstory1/board/view.jsp?group="+group+"&cate="+cate+"&no="+no);
 		}else{
