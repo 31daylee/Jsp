@@ -1,34 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>FarmStory:: admin</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/style_admin.css">
-    <style>
-
-    </style>
-</head>
-<body>
-    <div id="container">
-        <header>
-          <a href="./index.html" class="logo"><img src="../images_admin/admin_logo.jpg" alt="로고"></a>
-          <p>
-            <a href="/FarmStory/index.html">HOME |</a>
-            <a href="#">로그아웃 |</a>
-            <a href="#">고객센터</a>
-          </p>
-        </header>
+<%@ include file="./_header.jsp" %>
        <main>
-        <aside>
-            <h3>주요기능</h3>
-            <ul>
-                <li><a href="./productList.html">상품관리</a></li>
-                <li class="on"><a href="./orderList.html">주문관리</a></li>
-                <li><a href="./userList.html">회원관리</a></li>
-            </ul>
-        </aside>
+       <%@ include file="./_aside.jsp" %>   
         <section id="orderList">
             <nav><h3>주문목록</h3></nav>
             <article>
@@ -56,7 +29,7 @@
                             <td>11,000원</td>
                             <td>김유신</td>
                             <td>2023-01-01 13:06:14</td>
-                            <td>[상세확인]</td>
+                          	<td><a href="#" class="showPopup">[상세확인]</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,11 +48,59 @@
             </article>
         </section>
        </main>
-        <footer>
-            <p>
-                Copyright(C)Farmstory All rights reserved. FARMSTORY ADMINISTRATOR Version 1.0.1
-            </p>
-        </footer>
-    </div>
-</body>
-</html>
+<div id="orderPopup">
+    <section>
+        <nav>
+            <h1>상세주문내역</h1>
+            <button class="btnClose">닫기</button>
+        </nav>
+
+        <article>
+            <h3>기본정보</h3>
+            <table border="0">
+                <tr>
+                    <td rowspan="7" class="thumb"><img src="/Farmstory1/images_admin/sample_item1.jpg" alt="사과 500g"></td>
+                    <td>상품번호</td>
+                    <td>1011</td>
+                </tr>
+                <tr>
+                    <td>상품명</td>
+                    <td>사과 500g</td>
+                </tr>
+                <tr>
+                    <td>판매가격</td>
+                    <td>4,000원</td>
+                </tr>
+                <tr>
+                    <td>수량</td>
+                    <td>2개</td>
+                </tr>
+                <tr>
+                    <td>배송비</td>
+                    <td>3,000원</td>
+                </tr>
+                <tr>
+                    <td>합계</td>
+                    <td>11,000원</td>
+                </tr>
+                <tr>
+                    <td>주문자</td>
+                    <td>홍길동</td>
+                </tr>
+            </table>
+
+            <h3>배송지 정보</h3>
+            <table border="0">
+                <tr>
+                    <td>받는분</td>
+                    <td>홍길동</td>
+                </tr>
+                <tr>
+                    <td>배송지</td>
+                    <td>부산광역시 부산진구 대연동 120 루미너스 10층</td>
+                </tr>
+            </table>
+        </article>
+    </section>
+</div>
+<%@ include file="./_footer.jsp" %>

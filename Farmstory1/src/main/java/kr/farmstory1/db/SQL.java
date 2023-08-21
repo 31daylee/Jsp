@@ -102,6 +102,34 @@ public class SQL {
 												+ "FROM `Article` "
 												+ "WHERE `parent`=0 AND `cate`=? "
 												+ "Order BY `no` DESC LIMIT ?";
+	
+	
+	
+	//////////////////////////////////////////////////
+	//////////////////////Product/////////////////////
+	
+	public final static String INSERT_PRODUCT = "INSERT INTO `Product` SET "
+												+ "`type`=?, "
+												+ "`pName`=?, "
+												+ "`price`=?, "
+												+ "`delivery`=?, "
+												+ "`stock`=?, "
+												+ "`thumb1`=?, "
+												+ "`thumb2`=?, "
+												+ "`thumb3`=?, "
+												+ "`seller`=?, "
+												+ "`etc`=?, "
+												+ "`rdate`=NOW() ";
 			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
