@@ -1,6 +1,6 @@
 <%@page import="kr.farmstory1.dto.ProductDTO"%>
-<%@page import="java.util.List"%>
 <%@page import="kr.farmstory1.dao.ProductDAO"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp"%>
 <%
