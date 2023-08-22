@@ -416,7 +416,9 @@ main > .info > div > .account {
 /*장보기*/
 #sub > .market > aside > .lnb > li:nth-child(1) > a {background-image: url('../images/sub_cate2_lnb1.png');}
 #sub > .market > aside > .lnb > li:nth-child(1).on > a{background-image: url('../images/sub_cate2_lnb1_ov.png');}
-        
+ 
+
+       
 #sub > .market > .content > .sort > .on{color: #111;}
 #sub > .market > .content > .sort > a{color: #999;}
 #sub > .market > .content > table {
@@ -451,6 +453,12 @@ main > .info > div > .account {
     color: #111;
     font-weight: bold;
 }
+
+#sub > .market > .content > table tr > td .thumb {
+	width: 120px;
+	height: 120px;
+}
+
 #sub > .market > .content > .paging {
     margin: 20px 0;
     text-align: center;
