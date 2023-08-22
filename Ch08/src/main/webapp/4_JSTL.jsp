@@ -107,7 +107,6 @@
 		<!-- 반복문 -->
 		<c:forEach var="i" begin="1" end="5">
 			<p>i : ${i}</p>
-		
 		</c:forEach>
 		<c:set var="sum" value="0"/>
 		<c:forEach var="k" begin="1" end="10">
