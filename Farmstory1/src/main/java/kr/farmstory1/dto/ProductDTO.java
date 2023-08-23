@@ -35,6 +35,9 @@ public class ProductDTO {
 	public void setpNo(int pNo) {
 		this.pNo = pNo;
 	}
+	public void setpNo(String pNo) {
+		this.pNo = Integer.parseInt(pNo);
+	}
 	public int getType() {
 		return type;
 	}
@@ -71,6 +74,13 @@ public class ProductDTO {
 	public void setDelivery(int delivery) {
 		this.delivery = delivery;
 	}
+	public String getDeliveryWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		
+		return df.format(delivery);
+	}
+	
 	public void setDelivery(String delivery) {
 		this.delivery = Integer.parseInt(delivery);
 	}
