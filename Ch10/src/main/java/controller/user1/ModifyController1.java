@@ -13,7 +13,7 @@ import dto.User1DTO;
 import service.User1Service;
 
 @WebServlet("/user1/modify.do")
-public class ModifyController extends HttpServlet{
+public class ModifyController1 extends HttpServlet{
 
 	private static final long serialVersionUID = -3843027209002678989L;
 	private User1Service service = new User1Service();

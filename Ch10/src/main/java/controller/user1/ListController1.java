@@ -15,7 +15,7 @@ import service.User1Service;
 
 
 @WebServlet("/user1/list.do")
-public class ListController extends HttpServlet {
+public class ListController1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private User1Service service = new User1Service();
