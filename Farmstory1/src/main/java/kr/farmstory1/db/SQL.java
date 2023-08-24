@@ -147,6 +147,28 @@ public class SQL {
 											+ "`orderDate`=NOW() ";
 	
 	
+	public static final String SELECT_ORDERS = "SELECT "
+											+ "a.*,"
+											+ "b.`pName`,"
+											+ "b.`thumb1` "
+											+ "FROM `Order` AS a "
+											+ "JOIN `Product` AS b "
+											+ "ON a.orderProduct = b.pNo "
+											+ "LIMIT ?, 10";
+	public final static String SELECT_COUNT_ORDERS_TOTAL_ALL = "SELECT COUNT(*) FROM `Order`";
+	public final static String SELECT_ORDER_DETAIL = "SELECT a.pNo, a.pName, a.price, b.orderCount, a.delivery, b.orderTotal, c.name " 
+										            +"FROM Product AS a " 
+										          	+"JOIN `Order` AS b ON a.pNo = b.orderProduct " 
+										          	+"JOIN `User` AS c ON b.orderUser = c.uid "
+													+"WHERE b.orderNo =? ";
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

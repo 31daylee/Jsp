@@ -1,5 +1,7 @@
 package kr.farmstory1.dto;
 
+import java.text.DecimalFormat;
+
 public class OrderDTO {
 	private int orderNo;
 	private int orderProduct;
@@ -15,6 +17,26 @@ public class OrderDTO {
 	private String orderEtc;
 	private String orderUser;
 	private String orderDate;
+	
+	// 추가필드
+	private String pName;
+	private String thumb1;
+	
+	
+	public String getpName() {
+		return pName;
+	}
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+	public String getThumb1() {
+		return thumb1;
+	}
+	public void setThumb1(String thumb1) {
+		this.thumb1 = thumb1;
+	}
+	
+	
 	public int getOrderNo() {
 		return orderNo;
 	}
@@ -51,6 +73,13 @@ public class OrderDTO {
 	public int getOrderPrice() {
 		return orderPrice;
 	}
+	public String getOrderPriceWithComma() {
+		DecimalFormat df = new DecimalFormat("###,###");
+		
+		return df.format(orderPrice);
+	
+	}
+	
 	public void setOrderPrice(int orderPrice) {
 		this.orderPrice = orderPrice;
 	}
@@ -59,6 +88,11 @@ public class OrderDTO {
 	}
 	public int getOrderTotal() {
 		return orderTotal;
+	}
+	public String getOrderTotalWithComma() {
+		DecimalFormat df = new DecimalFormat("###,###");
+		
+		return df.format(orderTotal);
 	}
 	public void setOrderTotal(int orderTotal) {
 		this.orderTotal = orderTotal;

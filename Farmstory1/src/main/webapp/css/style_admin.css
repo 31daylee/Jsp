@@ -187,9 +187,10 @@ main > section > article table tr > td {
     overflow: hidden;
     box-sizing: border-box;
 }
-#orderList .productDelete {
+#orderList > article > p:nth-child(2) > a.orderDelete {
     float: left;
 }
+
 #orderList .paging {
     text-align: center;
 }
@@ -197,6 +198,9 @@ main > section > article table tr > td {
     font-weight: bold;
     text-decoration: underline;
 }
+#orderList .hidden {
+	display: none;
+} 
 #orderPopup {
     position: absolute;
     left: 0;
@@ -252,12 +256,17 @@ main > section > article table tr > td {
     box-sizing: border-box;
 }
 
-#orderPopup > section > article > table .thumb {
+#orderPopup > section > article > table .thumb1 {
     width: 10%;
 }
 
 #orderPopup > section > article > table tr {
     border-bottom: 1px dotted #999;
+}
+
+#orderPopup > section > article > table .thumb1 > img{
+	width: 120px;
+	height: 120px;
 }
 
 #orderPopup .btnClose {
