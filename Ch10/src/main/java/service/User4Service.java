@@ -4,7 +4,9 @@ import java.util.List;
 
 import dto.User4DTO;
 
-public class User4Service {
+public enum User4Service {
+	
+	INSTANCE;
 	
 	public void insertUser4() {
 		

@@ -4,8 +4,10 @@ import java.util.List;
 
 import dto.User3DTO;
 
-public class User3Service {
+public enum User3Service {
 
+	INSTANCE;
+	
 	public void insertUser3() {
 		
 	}

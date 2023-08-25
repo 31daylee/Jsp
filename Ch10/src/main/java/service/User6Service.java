@@ -4,8 +4,9 @@ import java.util.List;
 
 import dto.User6DTO;
 
-public class User6Service {
+public enum User6Service {
 	
+	INSTANCE;
 	
 	public void insertUser6() {
 		
