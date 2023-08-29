@@ -17,7 +17,7 @@
             </tr>                    
             <tr>
                 <td>1</td>
-                <td><a href="./view.jsp">테스트 제목입니다.[3]</a></td>
+                <td><a href="./view.do">테스트 제목입니다.[3]</a></td>
                 <td>길동이</td>
                 <td>20-05-12</td>
                 <td>12</td>
@@ -31,7 +31,7 @@
             <a href="#" class="num">3</a>
             <a href="#" class="next">다음</a>
         </div>
-        <a href="./write.html" class="btn btnWrite">글쓰기</a>
+        <a href="./write.do" class="btn btnWrite">글쓰기</a>
     </section>
 </main>
 <%@ include file="./_footer.jsp" %>

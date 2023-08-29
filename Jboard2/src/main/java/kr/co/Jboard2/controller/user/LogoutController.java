@@ -9,17 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import kr.co.Jboard2.dto.UserDTO;
-import kr.co.Jboard2.service.UserService;
+import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/user/findIdResult.do")
-public class FindIdResultController extends HttpServlet {
+@WebServlet("/user/logout.do")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserService service = UserService.getInstance();
  
-    public FindIdResultController() {
+    public LogoutController() {
 
     }
 
@@ -28,16 +25,10 @@ public class FindIdResultController extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String name  = request.getParameter("name");
-		String email = request.getParameter("email");
-		
-		UserDTO user = service.selectUserByNameAndEmail(name, email);
-		request.setAttribute("user", user);
-		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/user/findIdResult.jsp");
-		dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
+		session.invalidate();
+	
+		response.sendRedirect("/Jboard2/user/login.do?success=200");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
