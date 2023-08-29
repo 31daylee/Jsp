@@ -7,7 +7,7 @@
 		<title>user2::list</title>
 	</head>
 	<body>
-		<h3>User1 목록</h3>
+		<h3>User2 목록</h3>
 		<a href="/Ch10">메인</a>
 		<a href="/Ch10/user2/register.do">등록</a>
 		<table border="1">

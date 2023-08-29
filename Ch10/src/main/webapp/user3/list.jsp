@@ -4,12 +4,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user1::list</title>
+		<title>user3::list</title>
 	</head>
 	<body>
-		<h3>User1 목록</h3>
+		<h3>User3 목록</h3>
 		<a href="/Ch10">메인</a>
-		<a href="/Ch10/user1/register.do">등록</a>
+		<a href="/Ch10/user3/register.do">등록</a>
 		
 		<table border="1">
 			<tr>
@@ -26,8 +26,8 @@
 					<td>${user.getHp()}</td>
 					<td>${user.getAge()}</td>
 					<td>
-						<a href="/Ch10/user1/modify.do?uid=${user.getUid()}">수정</a> 
-						<a href="/Ch10/user1/delete.do?uid=${user.getUid()}">삭제</a> 
+						<a href="/Ch10/user3/modify.do?uid=${user.getUid()}">수정</a> 
+						<a href="/Ch10/user3/delete.do?uid=${user.getUid()}">삭제</a> 
 					</td>
 				</tr>
 			</c:forEach>

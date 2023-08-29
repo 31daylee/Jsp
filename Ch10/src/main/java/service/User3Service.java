@@ -10,8 +10,8 @@ public enum User3Service {
 	INSTANCE;
 	User3DAO dao = new User3DAO();
 	
-	public void insertUser3() {
-		dao.insertUser3();
+	public void insertUser3(User3DTO dto) {
+		dao.insertUser3(dto);
 	}
 	public User3DTO selectUser3(String uid) {
 		return dao.selectUser3(uid);
