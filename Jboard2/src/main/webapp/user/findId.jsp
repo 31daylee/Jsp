@@ -9,8 +9,7 @@
 			$('.btnNext').click(function(e){
 				e.preventDefault();
 				
-				if(isEmailOk){
-					$('#formFindId').submit();
+				$('#formFindId').submit();
 				}else{
 					alert('이메일 인증을 수행하셔야 합니다.');
 				}
@@ -52,7 +51,7 @@
 
         <div>
             <a href="/Jboard2/user/login.do" class="btn btnCancel">취소</a>
-            <a href="/Jboard2/user/findIdResult.do" class="btn btnNext">다음</a>
+            <a href="#" class="btn btnNext">다음</a>
         </div>
     </section>
 </main>

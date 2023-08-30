@@ -254,7 +254,6 @@ public class UserDAO extends DBHelper {
 	
 	public void updateUser(UserDTO dto) {
 
-		int result = 0;
 		try {
 			
 			conn = getConnection();

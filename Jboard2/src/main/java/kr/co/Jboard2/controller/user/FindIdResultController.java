@@ -38,6 +38,7 @@ public class FindIdResultController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/user/findIdResult.jsp");
 		dispatcher.forward(request, response);
+	
 	}
 
 	
