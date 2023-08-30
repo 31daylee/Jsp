@@ -6,8 +6,14 @@
 	
 	if(success == 100){
 		alert('아이디, 비밀번호를 다시 확인하십시오.');
+	}else if(success == 101){
+		alert('정상적인 접근이 아닙니다. 로그인 먼저 하세요');
 	}else if(success == 200){
 		alert('정상적으로 로그아웃이 되었습니다.');
+	}else if(success == 300){
+		alert('축하 드립니다. 정상적으로 회원가입이 되었습니다.');
+	}else if(success == 333){
+		alert('비밀번호가 변경되었습니다. 다시 로그인 하시기 바랍니다.');
 	}
 
 

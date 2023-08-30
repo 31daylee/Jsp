@@ -1,26 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
 <script src="/Jboard2/js/authEmail.js"></script>
+<script src="/Jboard2/js/validation.js"></script>
 <script>
 	
-	$(function(){
-		
-		$('.btnNext').click(function(e){
-			e.preventDefault();
+		$(function(){
 			
-			if(isEmailOk){
-				$('#formFindId').submit();
-			}else{
-				alert('이메일 인증을 수행하셔야 합니다.');
-			}
+			$('.btnNext').click(function(e){
+				e.preventDefault();
+				
+				if(isEmailOk){
+					$('#formFindId').submit();
+				}else{
+					alert('이메일 인증을 수행하셔야 합니다.');
+				}
+			});
 		});
-		
-	});
 </script>
 
 <main id="user">
     <section class="find findId">
-        <form action="formFindId" action="/Jboard2/user/findIdResult.do" method="get">
+        <form id="formFindId" action="/Jboard2/user/findIdResult.do" method="POST">
+        	<input type="hidden" name="type" value="FIND_ID">
             <table border="0">
                 <caption>아이디 찾기</caption>
                 <tr>
@@ -32,7 +33,7 @@
                     <td>
                         <div>
                             <input type="email" name="email" placeholder="이메일 입력"/>
-                            <button type="button" class="btnAuth">인증번호 받기</button>
+                            <button type="button" id="btnEmailCode" class="btnAuth">인증번호 받기</button>
                             <span class="resultEmailForId"></span>
                         </div>
                         <div>

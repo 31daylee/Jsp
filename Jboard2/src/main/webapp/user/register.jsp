@@ -7,7 +7,8 @@
 <script src="/Jboard2/js/authEmail.js"></script>
 <main id="user">
     <section class="register">
-        <form action="/Jboard2/user/register.do" method="post">
+        <form id="formUser" action="/Jboard2/user/register.do" method="post">
+        	<input type="hidden" name="type" value="REGISTER">
             <table border="1">
                 <caption>사이트 이용정보 입력</caption>
                 <tr>
@@ -72,7 +73,7 @@
                     <td>주소</td>
                     <td>
                         <input type="text" name="zip" placeholder="우편번호"/>
-                        <button type="button"><img src="../img/chk_post.gif" alt="우편번호찾기"/></button>
+                        <button type="button"  onclick="zipcode()"><img src="../img/chk_post.gif" alt="우편번호찾기"/></button>
                         <input type="text" name="addr1" placeholder="주소 검색"/>
                         <input type="text" name="addr2" placeholder="상세주소 입력"/>
                     </td>

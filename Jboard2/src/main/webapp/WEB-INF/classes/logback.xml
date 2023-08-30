@@ -52,8 +52,8 @@
 	</appender>
 	
 	
-	<root level="info">
-		<!-- <appender-ref ref="STDOUT" /> --> <!-- 콘솔 출력 용 -->
+	<root level="debug">
+		<appender-ref ref="STDOUT" />  <!-- 콘솔 출력 용 -->
 		<appender-ref ref="ROLLING_DAILY" />
 	</root>
 </configuration>

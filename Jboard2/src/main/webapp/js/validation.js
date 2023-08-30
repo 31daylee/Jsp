@@ -26,7 +26,7 @@
 			
 			// 아이디 검사 
 			$('input[name=uid]').keydown(function(){
-				$('.resultId').text('');
+				$('.uidResult').text('');
 				isUidOk = false;
 				
 			});
@@ -35,39 +35,54 @@
 			// 비밀번호 검사
 			$('input[name=pass2]').focusout(function() {
 			  const pass1 = $('input[name=pass1]').val();
-			  const pass2 = $(this).val();
-			
-			  if (pass1 == pass2) {
-			    if (pass1.match(rePass)) {
-			      $('.resultPass').css('color', 'green').text('사용 가능한 비밀번호 입니다.');
-			      isPassOk = true;
-			    } else {
-			      $('.resultPass').css('color', 'red').text('비밀번호는 숫자, 영문, 특수문자 조합 5자리 이상이어야 합니다.');
-			      isPassOk = false;
-			    }
-			  } else if (pass1 == '' || pass2 == '') {
-			    $('.resultPass').text('');
-			    isPassOk = false;
-			  } else {
-			    $('.resultPass').css('color', 'red').text('비밀번호가 일치하지 않습니다.');
-			    isPassOk = false;
-			  }
-			});
-			
+			  const pass2 = $('input[name=pass2]').val();
+						
+				if(pass1 == pass2){
+						
+						if(pass2.match(rePass)){
+							$('.passResult').css('color', 'green').text('사용할 수 있는 비밀번호 입니다.');
+							isPassOk = true;
+						}else{
+							$('.passResult').css('color', 'red').text('사용할 수 없는 비밀번호 입니다.');
+							isPassOk = false;
+						}
+					}else{
+						$('.passResult').css('color', 'red').text('비밀번호가 일치하지 않습니다.');
+						isPassOk = false;
+					}
+				});
+				
 			// 이름 검사
 			$('input[name=name]').focusout(function(){
 				
 				const name = $(this).val();
 				
 				if(name.match(reName)){
-					$('.resultName').text('');
+					$('.nameResult').text('');
 					isNameOk = true;
 					
 				}else{
-					$('.resultName').css('color', 'red').text('유효한 이름이 아닙니다.');
+					$('.nameResult').css('color', 'red').text('유효한 이름이 아닙니다.');
 					isNameOk = false; 
 				}
 				
+			});
+			// 별명 검사
+			$('input[name=nick]').keydown(function(){
+				$('.nickResult').text('');
+				isNickOk = false;
+			});
+			
+			// 이메일 검사
+			$('input[name=email]').keydown(function(){
+				$('.resultEmail').text('');
+				isEmailOk = false;
+			});
+			
+			// 휴대폰 검사
+			$('input[name=hp]').keydown(function(){
+				$('.resultHp').text('');
+				isHpOk = false;
 			});
 			
 		

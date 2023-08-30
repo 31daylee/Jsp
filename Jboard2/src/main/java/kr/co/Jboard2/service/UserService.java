@@ -52,6 +52,9 @@ public class UserService {
 	public int selectCountNameAndEmail(String name, String email) {
 		return dao.selectCountNameAndEmail(name, email);				
 	}
+	public int selectCountUidAndEmail(String uid, String email) {
+		return dao.selectCountUidAndEmail(uid, email);				
+	}
 	public UserDTO selectUser(String uid, String pass) {
 		return dao.selectUser(uid, pass);
 	}
@@ -66,6 +69,15 @@ public class UserService {
 	public void updateUser(UserDTO dto) {
 		dao.updateUser(dto);
 	}
+	public int updateUserPass(String uid, String pass) {
+		return dao.updatePass(uid,pass);
+	}
+	
+	public int updateUserForWithdraw(String uid) {
+		return dao.updateUserForWithdraw(uid);
+				
+	}
+	
 	
 	public void deleteUser(String uid) {
 		dao.deleteUser(uid);
@@ -74,7 +86,7 @@ public class UserService {
 		
 		// 인증코드 생성
 		int code = ThreadLocalRandom.current().nextInt(100000, 1000000);
-		generatedCode = ""+code;
+		generatedCode = String.valueOf(code);
 		
 		// 기본정보
 		String sender = "gussla2206@gmail.com";

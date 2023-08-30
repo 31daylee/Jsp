@@ -27,27 +27,49 @@ public class AuthEmailController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String type  = request.getParameter("type");
+		String uid  = request.getParameter("uid");
 		String name  = request.getParameter("name");
 		String email = request.getParameter("email");
 		
 		int result = 0;
 		int status = 0;
 		
-		if(name == null) {
+		if(type.equals("REGISTER")) {
 			// 회원가입할 때 이메일 인증
 			result = service.selectCountEmail(email);
-			status = service.sendCodeByEmail(email);
-		}else {
+			
+			if(result == 0) {
+				status = service.sendCodeByEmail(email);
+			}
+			
+		}else if(type.equals("FIND_ID")){
 			// 아이디찾기할 때 이메일 인증
 			result = service.selectCountNameAndEmail(name, email);
 			
 			if(result == 1) {
 				status = service.sendCodeByEmail(email);
 			}
+		}else if(type.equals("FIND_PASS")){
+			// 비밀번호 찾기할 때 이메일 인증
+			result = service.selectCountUidAndEmail(uid, email);
+			
+			if(result == 1) {
+				status = service.sendCodeByEmail(email);
+			}
+		}else if(type.equals("MODIFY")){
+			// 회원정보 수정할 때 이메일 인증
+			result = service.selectCountEmail(email);
+			
+			if(result == 1) {
+				status = service.sendCodeByEmail(email);
+			}			
 		}
 		
 		// JSON 생성
 		JsonObject json = new JsonObject();
+		json.addProperty("result", result);
 		json.addProperty("status", status);
 		
 		// JSON 출력
@@ -56,6 +78,7 @@ public class AuthEmailController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String code = request.getParameter("code");
 		logger.info("code : " + code);
 		
