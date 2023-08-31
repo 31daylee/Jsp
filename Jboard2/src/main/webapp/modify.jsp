@@ -2,17 +2,18 @@
 <%@ include file="./_header.jsp" %>
 <main id="board">
     <section class="modify">
-        <form action="#">
+        <form action="/Jboard2/modify.do" method="post">
+        <input type="hidden" name="no" value="${dto.no}">
             <table border="0">
                 <caption>글수정</caption>
-                <tr>
-                    <th>제목</th>
-                    <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>
-                </tr>
+            	<tr>
+                	<th>제목</th>
+                	<td><input type="text" name="title" value="${dto.getTitle()}" /></td>
+           		</tr>
                 <tr>
                     <th>내용</th>
                     <td>
-                        <textarea name="content"></textarea>
+                        <textarea name="content" >${dto.content}</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -22,7 +23,6 @@
                     </td>
                 </tr>
             </table>
-            
             <div>
                 <a href="./view.do" class="btn btnCancel">취소</a>
                 <input type="submit" value="작성완료" class="btn btnComplete"/>

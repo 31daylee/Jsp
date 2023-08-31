@@ -60,6 +60,7 @@ public class SQL {
 	public final static String INSERT_ARTICLE = "INSERT INTO `Article` SET "
 												+ "`title`=?, "
 												+ "`content`=?,"
+												+ "`file`=?,"
 												+ "`writer`=?,"
 												+ "`regip`=?,"
 												+ "`rdate`=NOW()";
@@ -71,6 +72,7 @@ public class SQL {
 												+ "`regip`=?,"
 												+ "`rdate`=NOW()";
 	
+	public final static String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `Article`";
 	public final static String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
 	public final static String SELECT_ARTICLES = "SELECT "
 												+ "a.*, "
@@ -105,7 +107,12 @@ public class SQL {
 	
 	
 	
-	
+	// File
+	public final static String INSERT_FILE = "INSERT INTO `File` SET"
+											+ "`ano`=?, "
+											+ "`ofile`=?, "
+											+ "`sfile`=?, "
+											+ "`rdate`=NOW()";
 	
 	
 	
