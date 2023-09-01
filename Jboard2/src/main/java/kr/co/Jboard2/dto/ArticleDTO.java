@@ -12,11 +12,18 @@ public class ArticleDTO {
 	private String writer;
 	private String regip;
 	private String rdate;
+	
+	// 추가 필드
 	private String nick;
+	private FileDTO fileDto;
 	
 	
-	
-	
+	public FileDTO getFileDto() {
+		return fileDto;
+	}
+	public void setFileDto(FileDTO fileDto) {
+		this.fileDto = fileDto;
+	}
 	public String getNick() {
 		return nick;
 	}

@@ -34,6 +34,7 @@ public class ListController extends HttpServlet {
 	
 		// 페이지 가져오기 
 		String pg = request.getParameter("pg");
+		String search = request.getParameter("search");
 		
 		// DAO 객체 생성
 		ArticleDAO dao = new ArticleDAO();
@@ -57,7 +58,7 @@ public class ListController extends HttpServlet {
 		start = (currentPage - 1) * 10;
 		
 		// 전체 게시글 갯수 조회
-		total = dao.selectCountTotal();
+		total = service.selectCountTotal(search);
 		
 		// 페이지 번호 계산
 		if(total % 10 == 0){
@@ -91,7 +92,7 @@ public class ListController extends HttpServlet {
 		
 		
 		// 현재 페이지 게시물 조회
-		List<ArticleDTO> articles = service.selectArticles(start);
+		List<ArticleDTO> articles = service.selectArticles(start, search);
 		logger.debug("Articles..."+articles);
 		
 		request.setAttribute("articles", articles);

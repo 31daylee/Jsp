@@ -3,8 +3,8 @@
 <%@ include file="./_header.jsp" %>
 <main id="board">
     <section class="list">                
-        <form action="/Jboard2/list.do">
-            <input type="text" name="search" placeholder="제목 키워드, 글쓴이 검색">
+        <form action="/Jboard2/list.do" method="get">
+            <input type="text" name="search" placeholder="제목 키워드 검색">
             <input type="submit" value="검색">
         </form>
         <table border="0">
@@ -16,9 +16,9 @@
                 <th>날짜</th>
                 <th>조회</th>
             </tr> 
-            <c:forEach var="article" items="${articles}">               
+            <c:forEach var="article" items="${articles}" varStatus="loopStatus">               
             <tr>
-                <td>${article.no}</td>
+                <td>${pageStartNum-loopStatus.index}</td>
               	<td><a href="./view.do?no=${article.no}">${article.getTitle()}[${article.getComment()}]</a></td>
                 <td>${article.getNick()}</td>
                 <td>${article.getRdate()}</td>

@@ -73,7 +73,13 @@ public class SQL {
 												+ "`rdate`=NOW()";
 	
 	public final static String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `Article`";
-	public final static String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
+	
+	public final static String SELECT_ARTICLE = "SELECT * FROM `Article` AS a "
+												+ "LEFT JOIN `File` AS b " // 파일이 없는 데이터도 출력하게 하기 위해서 Left Join을 하게 되면 Article 부분이 다 나오게 된다. 
+												+ "ON a.`no` = b.ano "
+												+ "WHERE `no`=?";
+	
+	// 모든 아티클 조회
 	public final static String SELECT_ARTICLES = "SELECT "
 												+ "a.*, "
 												+ "b.`nick` "
@@ -83,6 +89,18 @@ public class SQL {
 												+ "ORDER BY `no` DESC "
 												+ "LIMIT ?, 10";
 	
+	// 검색 키워드를 통한 아티클 조회
+	public final static String SELECT_ARTICLES_FOR_SEARCH = "SELECT "
+															+ "a.*, "
+															+ "b.`nick` "
+															+ "FROM `Article` AS a "
+															+ "JOIN `User` AS b ON a.writer = b.uid "
+															+ "WHERE `parent`=0 AND `title` LIKE ? "
+															+ "ORDER BY `no` DESC "
+															+ "LIMIT ?, 10";
+				
+	
+	
 	public final static String SELECT_COMMENTS = "SELECT "
 												+ "a.*, "
 												+ "b.`nick` "
@@ -91,6 +109,7 @@ public class SQL {
 												+ "WHERE `parent`=?";
 	
 	public final static String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0";
+	public final static String SELECT_COUNT_TOTAL_FOR_SEARCH = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `title` LIKE ?";
 	
 	
 	
@@ -117,10 +136,10 @@ public class SQL {
 	
 	
 	
+	public final static String SELECT_FILE = "SELECT * FROM `File` WHERE `fno`=?";
 	
 	
-	
-	
+	public final static String DELETE_FILE = "DELETE FROM `File` WHERE `ano`=?"; // 파일번호가 아닌 글번호로 지운다 
 	
 	
 			

@@ -19,11 +19,10 @@
                 <tr>
                     <th>파일</th>
                     <td>
-                        <input type="file" name="file"/>
+                        <input type="file" name="file1"/><br>
                     </td>
                 </tr>
             </table>
-            
             <div>
                 <a href="./list.do" class="btn btnCancel">취소</a>
                 <input type="submit" value="작성완료" class="btn btnComplete"/>
