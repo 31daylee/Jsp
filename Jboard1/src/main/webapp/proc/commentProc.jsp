@@ -17,7 +17,7 @@
 	
 	ArticleDAO dao = new ArticleDAO();
 	
-	// 댓글 입력
+	// 댓글 입력	se
 	int result = dao.insertComment(dto);
 	
 	// 댓글 카운트 수정
