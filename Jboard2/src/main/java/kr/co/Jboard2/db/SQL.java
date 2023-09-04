@@ -108,6 +108,15 @@ public class SQL {
 												+ "JOIN `User` AS b ON a.writer = b.uid "
 												+ "WHERE `parent`=?";
 	
+	public final static String SELECT_COMMENTS_FOR_COUNT = "SELECT "
+															+ "a.* , "
+															+ "b.nick, "
+															+ "(SELECT COUNT() FROM Article c WHERE c.parent= a.no) "
+															+ "FROM Article AS a "
+															+ "JOIN User AS b ON a.writer = b.uid "
+															+ "WHERE parent = 0 "
+															+ "ORDER BY `no` DESC "
+															+ "LIMIT ?,10";
 	public final static String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0";
 	public final static String SELECT_COUNT_TOTAL_FOR_SEARCH = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `title` LIKE ?";
 	
