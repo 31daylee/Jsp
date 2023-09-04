@@ -1,5 +1,28 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
+<script>
+	window.onload = function(){
+		
+		const chk1 = document.getElementsByName('chk1')[0];
+		const chk2 = document.getElementsByName('chk2')[0];
+		
+		const btnNext = document.querySelector('.btnNext');
+		btnNext.addEventListener('click', function(e){
+			e.preventDefault();
+			
+			if(!chk1.checked){
+				alert('이용약관에 동의하셔야 합니다.');
+				return;
+			}else if(!chk2.checked){
+				alert('개인정보 취급방침에 동의하셔야 합니다.');
+				return;
+			}else{
+				location.href ="/Farmstory2/user/register.do";
+			}
+		})
+	}
+
+</script>
 <div id="user">
 <section id="user" class="terms">
 		<table>
@@ -30,7 +53,7 @@
 		</table>
 		<div>
 			<a href="/Farmstory2/user/login.do" class="btnCancel">취소</a> <a
-				href="/Farmstory2/user/register.do" class="btnNext">다음</a>
+				href="#" class="btnNext">다음</a>
 		</div>
 	</section>
 </div>

@@ -7,8 +7,32 @@
 	 - _header.jsp 5줄 참고
 -->
 <script src="/Farmstory2/js/zipcode.js"></script>
-<!-- <script src="/Farmstory2/js/validation.js"></script>-->
-<script src="/Farmstory2/js/checkUser.js"></script>
+<script src="/Farmstory2/js/validation.js"></script>
+<!--  <script src="/Farmstory2/js/checkUser.js"></script>-->
+<script>
+	
+	$(function(){
+		
+		const inputUid = document.getElementsByName('uid')[0];
+		const uidResult = document.getElementsByClassName('resultId')[0];
+		const btnCheckUid = document.getElementById('btnCheckUid');
+		
+		if(btnCheckUid != null){
+			btnCheckUid.onclick = function(){
+				
+				const uid = inputUid.value;
+				
+			}
+		}
+		
+		
+		
+		
+	})
+
+
+
+</script>
 <div id="user">
 	<section class="register">
         <form id="formUser" action="/Farmstory2/user/register.do" method="post">
@@ -91,7 +115,7 @@
 
             <div>
                 <a href="/Farmstory2/user/login.do" class="btnCancel">취소</a>
-                <input type="submit"   class="btnSubmit" value="회원가입"/>
+                <input type="submit" class="btnSubmit" value="회원가입"/>
             </div>    
         </form>
     </section>

@@ -24,7 +24,7 @@
 			
 			// 서버전송
 			const xhr = new XMLHttpRequest();
-			xhr.open('GET', '/Jboard2/user/checkUid.do?uid='+uid);
+			xhr.open('GET', '/Farmstory2/user/checkUid.do?uid='+uid);
 			xhr.send();
 			
 			xhr.onreadystatechange = function(){
@@ -67,7 +67,7 @@
 		}
 		
 		$.ajax({
-			url:'/Jboard2/user/checkNick.do?nick='+nick,
+			url:'/Farmstory2/user/checkNick.do?nick='+nick,
 			type:'get',
 			dataType:'json',
 			success: function(data){
@@ -98,7 +98,7 @@
 			return;	
 		}
 		
-		const url = '/Jboard2/user/checkHp.do?hp='+hp;
+		const url = '/Farmstory2/user/checkHp.do?hp='+hp;
 		
 		$.get(url, function(result){
 			
