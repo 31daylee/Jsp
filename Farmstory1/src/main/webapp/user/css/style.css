@@ -14,7 +14,7 @@
 .login table {
     margin-left: 52px;
     margin-top: 30px;
-    border-collapse: collapse; /*¹Ù±ùÂÊ/¾ÈÂÊ Å×µÎ¸® ¼­·Î ÇÕÄ¡±â */
+    border-collapse: collapse; /*ï¿½Ù±ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ */
     border-spacing: 0;
 }
 .login table tr {}
