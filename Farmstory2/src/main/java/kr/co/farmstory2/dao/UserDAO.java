@@ -87,4 +87,138 @@ public class UserDAO extends DBHelper{
 	public void deleteUser(String uid) {}
 	
 	
+	// 추가
+	// register-중복검사
+	public int selectCountNick(String nick) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_NICK);
+			psmt.setString(1, nick);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountNick() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	
+	public int selectCountUid(String uid) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_UID);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountUid() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	public int selectCountHp(String hp) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_HP);
+			psmt.setString(1, hp);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountHp() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	public int selectCountEmail(String email) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_EMAIL);
+			psmt.setString(1, email);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountEmail() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	
+	public int selectCountNameAndEmail(String name, String email) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_NAME_EMAIL);
+			psmt.setString(1, name);
+			psmt.setString(2, email);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountNameAndEmail() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	public int selectCountUidAndEmail(String uid, String email) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_UID_EMAIL);
+			psmt.setString(1, uid);
+			psmt.setString(2, email);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch (Exception e) {
+			logger.error("selectCountUidAndEmail() error : " + e.getMessage());
+		}
+		
+		return result;
+	}
+	
+	
 }

@@ -34,4 +34,25 @@ public enum	UserService {
 		dao.deleteUser(uid);
 	}
 	
+	// 추가
+	public int selectCountUid(String uid) {
+		return dao.selectCountUid(uid);
+	}
+	public int selectCountNick(String nick) {
+		return dao.selectCountNick(nick);
+	}
+	
+	public int selectCountHp(String hp) {
+		return dao.selectCountHp(hp);
+	}
+	public int selectCountEmail(String email) {
+		return dao.selectCountEmail(email);
+	}
+	
+	public int selectCountNameAndEmail(String name, String email) {
+		return dao.selectCountNameAndEmail(name, email);				
+	}
+	public int selectCountUidAndEmail(String uid, String email) {
+		return dao.selectCountUidAndEmail(uid, email);	
+	}
 }
