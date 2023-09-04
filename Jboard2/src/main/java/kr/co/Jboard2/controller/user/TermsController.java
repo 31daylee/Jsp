@@ -28,7 +28,7 @@ public class TermsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TermsDTO dto = service.selectTerms();
-		
+		service.selectTerms();
 		request.setAttribute("dto", dto);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/user/terms.jsp");
