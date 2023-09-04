@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +29,9 @@
 <body>
     <div id="container">
         <header>
-            <a href="./index.html" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
+            <a href="./index.do" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
             <p>
-                <a href="#">HOME |</a>
+                <a href="/Farmstory2/">HOME |</a>
                 <a href="#">로그아웃 |</a>
                 <a href="#">고객센터</a>
             </p>
@@ -39,9 +40,9 @@
             <aside>
                 <h3>주요기능</h3>
                 <ul>
-                    <li><a href="#">상품관리</a></li>
-                    <li><a href="#">주문관리</a></li>
-                    <li class="on"><a href="#">회원관리</a></li>                    
+                    <li><a href="/Farmstory2/admin/productList.do">상품관리</a></li>
+                    <li><a href="/Farmstory2/admin/orderList.do">주문관리</a></li>
+                    <li class="on"><a href="/Farmstory2/admin/userList.do">회원관리</a></li>                      
                 </ul>
             </aside>
             <section id="orderList">

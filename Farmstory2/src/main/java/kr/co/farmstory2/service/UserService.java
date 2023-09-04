@@ -15,17 +15,23 @@ public enum	UserService {
 	UserDAO dao = new UserDAO();
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public void insertUser(UserDTO dto) {}
+	public void insertUser(UserDTO dto) {
+		dao.insertUser(dto);
+	}
 	
-	public UserDTO selectUser(String uid) {
-		return null;
+	public UserDTO selectUser(String uid, String pass) {
+		return dao.selectUser(uid,pass);
 	}
 	public List<UserDTO> selectUsers() {
 		
-		return null;
+		return dao.selectUsers();
 	}
-	public void updateUser(UserDTO dto) {}
+	public void updateUser(UserDTO dto) {
+		dao.updateUser(dto);
+	}
 	
-	public void deleteUser(String uid) {}
+	public void deleteUser(String uid) {
+		dao.deleteUser(uid);
+	}
 	
 }

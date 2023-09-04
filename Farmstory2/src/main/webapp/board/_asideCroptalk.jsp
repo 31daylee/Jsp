@@ -10,11 +10,11 @@
 	<section class="croptalk">
 		<aside>
 			<img src="/Farmstory2/images/sub_aside_cate3_tit.png" alt="팜스토리소개">
-			<ol class="lnb">
+			<ul class="lnb">
 				<li class="<%= cate.equals("story")? "on":""%>"><a href="/Farmstory2/board/list.do?group=Croptalk&cate=story">농작물이야기</a></li>
 				<li class="<%= cate.equals("grow")? "on":""%>"><a href="/Farmstory2/board/list.do?group=Croptalk&cate=grow">텃밭가꾸기</a></li>
 				<li class="<%= cate.equals("school")? "on":""%>"><a href="/Farmstory2/board/list.do?group=Croptalk&cate=school">귀농학교</a></li>
-			</ol>
+			</ul>
 		</aside>
 		<article class="content">
 			<nav>
@@ -27,7 +27,7 @@
 					<strong>텃밭가꾸기</strong>
 					<%}else if (cate.equals("school")){ %>
 					<strong>귀농학교</strong>
-					<% } %>>
+					<% } %>
 				</p>
 			</nav>
 			<!-- 컨텐츠 시작-->

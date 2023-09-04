@@ -16,9 +16,9 @@
 <body>
     <div id="container">
         <header>
-            <a href="./index.html" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
+            <a href="./index.do" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
             <p>
-                <a href="#">HOME |</a>
+                <a href="/Farmstory2/">HOME |</a>
                 <a href="#">로그아웃 |</a>
                 <a href="#">고객센터</a>
             </p>
@@ -98,7 +98,7 @@
                         </table>
 
                         <p>
-                            <a href="./productList.html" class="btnCancel">취소</a>
+                            <a href="./productList.do" class="btnCancel">취소</a>
                             <input type="submit" value="상품등록"/>
                         </p>
                     </form>

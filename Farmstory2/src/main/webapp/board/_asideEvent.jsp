@@ -10,9 +10,9 @@
 	<section class="event">
 		<aside>
 			<img src="/Farmstory2/images/sub_aside_cate4_tit.png" alt="이벤트">
-			<ol class="lnb">
+			<ul class="lnb">
 				<li class="on"><a href="/Farmstory2/board/list.do?group=Event&cate=event">이벤트</a></li>
-			</ol>
+			</ul>
 		</aside>
 		<article class="content">
 			<nav>

@@ -2,14 +2,22 @@ package kr.co.farmstory2.dao;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import kr.co.farmstory2.db.DBHelper;
 import kr.co.farmstory2.db.SQL;
 import kr.co.farmstory2.dto.TermsDTO;
 
 public class TermsDAO extends DBHelper{
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	public TermsDTO selectTerms () {
 		TermsDTO dto = new TermsDTO();
+		
+		logger.debug("TermsDTO dto...1 : "+ dto);
+		
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -21,7 +29,11 @@ public class TermsDAO extends DBHelper{
 				dto.setPrivacy(rs.getString(2));
 		
 			}
+			
+			logger.debug("TermsDTO dto...2 : "+ dto);
 			close();
+			
+			
 			
 		}catch(Exception e) {
 			e.printStackTrace();

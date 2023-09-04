@@ -23,6 +23,13 @@ public class ModifyController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String group = request.getParameter("group");
+		String cate = request.getParameter("cate");
+		
+		
+		request.setAttribute("group", group);
+		request.setAttribute("cate", cate);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/modify.jsp");
 		dispatcher.forward(request, response);
 	}
