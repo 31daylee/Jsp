@@ -26,13 +26,13 @@
 					<% if(cate.equals("notice")){ %>
 					<strong>공지사항</strong>
 					<%}else if(cate.equals("menu")){ %>
-					<strong>공지사항</strong>
+					<strong>오늘의식단</strong>
 					<%}else if(cate.equals("chef")){ %>
-					<strong>공지사항</strong>
+					<strong>나도요리사</strong>
 					<%}else if(cate.equals("qna")){ %>
-					<strong>공지사항</strong>
+					<strong>1:1고객문의</strong>
 					<%}else if(cate.equals("faq")){ %>
-					<strong>공지사항</strong>
+					<strong>자주묻는질문</strong>
 					<% } %>
 				</p>
 			</nav>

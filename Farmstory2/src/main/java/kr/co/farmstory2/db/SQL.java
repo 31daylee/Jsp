@@ -51,16 +51,20 @@ public class SQL {
 	//////////////////////Article/////////////////////
 	
 	//SELECT 
-	public final static String SELECT_ARTICLE ="SELECT * FROM `Article` WHERE `no`=?";
-	
-	public final static String SELECT_ARTICLES = "SELECT "
-												+ "a.*, "
-												+ "b.`nick` "
-												+ "FROM `Article` AS a "
-												+ "JOIN `User` AS b ON a.writer = b.uid "
-												+ "WHERE `parent`=0 AND `cate`=? "
+	public final static String SELECT_ARTICLE = "SELECT * FROM `Article` AS a "
+												+ "LEFT JOIN `File` AS b " // 파일이 없는 데이터도 출력하게 하기 위해서 Left Join을 하게 되면 Article 부분이 다 나오게 된다. 
+												+ "ON a.`no` = b.ano "
+												+ "WHERE `no`=?";
+										
+	public final static String SELECT_ARTICLES = "SELECT a.*, "
+												+ "b.nick, "
+												+ "(SELECT COUNT(*) FROM Article c WHERE c.parent= a.no) "
+												+ "FROM Article AS a "
+												+ "JOIN User AS b "
+												+ "ON a.`writer` = b.`uid` "
+												+ "WHERE `parent` = 0 AND `cate`=? "
 												+ "ORDER BY `no` DESC "
-												+ "LIMIT ?, 10";
+												+ "LIMIT ?,10";
 
 	public final static String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `cate`=?";
 	
@@ -72,12 +76,22 @@ public class SQL {
 												+ "JOIN `User` AS b ON a.writer = b.uid "
 												+ "WHERE `parent`=?";
 	
+	
+	
+	// 파일 조회하기 
+	public final static String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `Article`";
+	
+	public final static String SELECT_FILE = "SELECT * FROM `File` WHERE `fno`=?";
+	
+	
+	
 	//INSERT 
 	public static final String INSERT_ARTICLE = "INSERT INTO `Article` SET "
 												+"`cate`=?, "
 												+"`title`=?, "
 												+"`writer`=?, "
 												+"`content`=?, "
+												+"`file`=?, "
 												+"`regip`=?, "
 												+"`rDate`=NOW()";
 	
@@ -87,7 +101,15 @@ public class SQL {
 												+"`writer` =?, "
 												+"`regip` =?, "
 												+"`rDate` =NOW()";
-												
+	
+	public final static String INSERT_FILE = "INSERT INTO `File` SET"
+												+ "`ano`=?, "
+												+ "`oriName`=?, "
+												+ "`newName`=?, "
+												+ "`rdate`=NOW()";
+
+	
+	
 	// UPDATE
 	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?,`content`=? WHERE `no`=?";
 	public static final String UPDATE_COMMENT = "UPDATE `Article` SET `content`=? WHERE `no`=?";
@@ -98,8 +120,7 @@ public class SQL {
 	// DELETE
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 	public static final String DELETE_COMMENT = "DELETE FROM `Article` WHERE `no`=?";
-
-	
+	public final static String DELETE_FILE = "DELETE FROM `File` WHERE `ano`=?"; // 파일번호가 아닌 글번호로 지운다 
 	
 	//////////////////////////////////////////////////
 	///////////////////////Index//////////////////////

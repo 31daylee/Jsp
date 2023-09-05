@@ -16,17 +16,23 @@ public enum FileService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	
-	public void insertFile(FileDTO dto) {}
+	public void insertFile(FileDTO dto) {
+		dao.insertFile(dto);
+	}
 	
 	public FileDTO selectFile(String fno) {
-		return null;
+		return dao.selectFile(fno);
 	}
 	public List<FileDTO> selectFiles() {
 		
-		return null;
+		return dao.selectFiles();
 	}
-	public void updateFile(FileDTO dto) {}
+	public void updateFile(FileDTO dto) {
+		dao.updateFile(dto);
+	}
 	
-	public void deleteFile(String fno) {}
+	public void deleteFile(String fno) {
+		dao.deleteFile(fno);
+	}
 	
 }

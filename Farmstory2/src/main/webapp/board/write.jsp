@@ -4,7 +4,10 @@
 			<section class="write">
 			    <h3>글쓰기</h3>
 			    <article>
-			        <form action="#" method="post">
+			        <form action="/Farmstory2/board/write.do" method="post" enctype="multipart/form-data">
+			            <input type="hidden" name="group" readonly value="${group}">
+        				<input type="hidden" name="cate"  readonly value="${cate}">
+        				<input type="hidden" name="writer" readonly value="${sessUser.uid}">
 			            <table>
 			                <tr>
 			                    <td>제목</td>

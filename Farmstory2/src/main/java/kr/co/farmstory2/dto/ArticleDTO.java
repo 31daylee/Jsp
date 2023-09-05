@@ -16,7 +16,23 @@ public class ArticleDTO {
 	
 	// 추가 필드와 메서드
 	private String nick;
+	private FileDTO fileDto;
+	private String commentCount;
 	
+	
+	
+	public String getCommentCount() {
+		return commentCount;
+	}
+	public void setCommentCount(String commentCount) {
+		this.commentCount = commentCount;
+	}
+	public FileDTO getFileDto() {
+		return fileDto;
+	}
+	public void setFileDto(FileDTO fileDto) {
+		this.fileDto = fileDto;
+	}
 	public String getNick() {
 		return nick;
 	}
@@ -76,6 +92,15 @@ public class ArticleDTO {
 	public void setFile(int file) {
 		this.file = file;
 	}
+	// 아티클에 해당하는 파일개수 출력
+	public void setFile(String oName) {
+		if(oName != null) {
+			this.file = 1;
+		}else {
+			this.file = 0;
+		}
+	}
+	
 	public int getHit() {
 		return hit;
 	}
@@ -103,6 +128,12 @@ public class ArticleDTO {
 	
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	@Override
+	public String toString() {
+		return "ArticleDTO [no=" + no + ", parent=" + parent + ", comment=" + comment + ", cate=" + cate + ", title="
+				+ title + ", content=" + content + ", file=" + file + ", hit=" + hit + ", writer=" + writer + ", regip="
+				+ regip + ", rdate=" + rdate + ", nick=" + nick + ", fileDto=" + fileDto + "]";
 	}
 	
 	

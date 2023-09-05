@@ -58,10 +58,10 @@ $(function(){
 				return;
 			}
 			
-			$.ajax({
+			$.ajax({ // ajax 방식으로 전송
 				url:'/Farmstory2/user/checkNick.do?nick='+nick,
 				type:'get',
-				dataType:'json',
+				dataType:'json', // dataType을 json으로 요청하는 것을 정해둠
 				success: function(data){
 					
 					if(data.result > 0){
@@ -91,9 +91,9 @@ $(function(){
 			}
 			const url = '/Farmstory2/user/checkHp.do?hp='+hp;
 			
-			$.get(url, function(result){
+			$.get(url, function(result){ // get방식으로 요청-ajax보다 더욱 간단하지만 세부적인 내용을 담지 못함
 				
-				const data = JSON.parse(result);
+				const data = JSON.parse(result); // 수동으로 JSON 파싱 
 				
 				if(data.result > 0){
 					$('#resultHp').css('color', 'red').text('이미 사용중인 휴대폰입니다.');

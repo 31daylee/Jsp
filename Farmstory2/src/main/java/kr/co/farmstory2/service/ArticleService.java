@@ -16,16 +16,52 @@ public enum ArticleService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	
-	public void insertArticle(ArticleDTO dto) {}
+	public int insertArticle(ArticleDTO dto) {
+		return dao.insertArticle(dto);
+	}
 	
 	public ArticleDTO selectArticle(String no) {
-		return null;
+		return dao.selectArticle(no);
 	}
-	public List<ArticleDTO> selectArticles() {
+	public List<ArticleDTO> selectArticles(int start ,String cate) {
 		
-		return null;
+		return dao.selectArticles(start, cate);
 	}
-	public void updateArticle(ArticleDTO dto) {}
+	public void updateArticle(ArticleDTO dto) {
+		dao.updateArticle(dto);
+	}
 	
-	public void deleteArticle(String no) {}
+	public void deleteArticle(String no) {
+		dao.deleteArticle(no);
+	}
+	
+	
+	// 추가
+	
+	// 카테고리 별 모든 원글 조회
+	public int selectCountTotal(String cate) {
+		return dao.selectCountTotal(cate);
+		
+	}
+	
+	
+	// 파일 다운로드
+
+	
+	
+	// 댓글 입력
+	public int insertComment(ArticleDTO dto) {
+		return dao.insertComment(dto);
+	}
+	
+	// 댓글 목록 리스트 조회
+	public List<ArticleDTO> selectComments(String parnet) {
+		return dao.selectComments(parnet);
+	}
+	// 댓글 삭제
+	public int deleteComment(String no) {
+		return dao.deleteComment(no);
+	}
+	
+	
 }
