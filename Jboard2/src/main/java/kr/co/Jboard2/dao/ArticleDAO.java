@@ -241,7 +241,7 @@ public class ArticleDAO extends DBHelper{
 		return result;
 	}
 	
-	// 댓그 리스트에 출력
+	// 댓글 리스트에 출력
 	public List<ArticleDTO> selectComments(String parent) {
 		
 		List<ArticleDTO> comments = new ArrayList<>();
