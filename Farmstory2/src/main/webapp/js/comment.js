@@ -13,11 +13,13 @@ $(function(){
 		const parent = $('#formComment > input[name=parent]').val();
 		const content = $('#formComment > textarea[name=content]').val();
 		const writer = $('#formComment > input[name=writer]').val();
+		const nick = $('#formComment > input[name=nick]').val();
 		
 		const jsonData = {
 			"parent": parent,	
 			"content": content,
-			"writer": writer
+			"writer": writer,
+			"nick": nick
 		};
 		
 		console.log('jsonData : '+ jsonData);
@@ -42,9 +44,8 @@ $(function(){
 				
 					
 					
-					
 					const article = `<article>
-										<span class='nick'>${sessUser.nick}</span>
+										<span class='nick'>`+nick+`</span>
 										<span class='date'>`+now+`</span>
 										<p class='content'>`+content+`</span>
 										<div>

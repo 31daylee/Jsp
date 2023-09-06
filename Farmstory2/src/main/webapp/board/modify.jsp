@@ -4,21 +4,28 @@
 			<section class="modify">
 			    <h3>글수정</h3>
 			    <article>
-			        <form action="#" method="post">
+			        <form action="/Farmstory2/board/modify.do?group=${group}&cate=${cate}&no=${dto.no}" method="post">
+			         <input type="hidden" name="no" value="${dto.no}">
 			            <table>
 			                <tr>
 			                    <td>제목</td>
-			                    <td><input type="text" name="title" value="제목" placeholder="제목을 입력하세요."/></td>
+			                    <td><input type="text" name="title" value="${dto.title }" placeholder="제목을 입력하세요."/></td>
 			                </tr>
 			                <tr>
 			                    <td>내용</td>
 			                    <td>
-			                        <textarea name="content">내용</textarea>
+			                        <textarea name="content">${dto.content }</textarea>
 			                    </td>
 			                </tr>
 			                <tr>
 			                    <td>첨부</td>
-			                    <td><input type="file" name="file"/></td>
+			                    <td>
+			                    <input type="file" name="file" />
+			                    	<span>${dto.fileDto.oriName}</span>
+			                         <span class="delete-icon">
+							            <img src="/Farmstory2/images/delete-key-line-logo.jpg" alt="Delete">
+							        </span>
+			                    </td>
 			                </tr>
 			            </table>
 			            <div>

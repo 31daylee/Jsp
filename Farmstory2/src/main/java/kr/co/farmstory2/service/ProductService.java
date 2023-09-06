@@ -15,16 +15,23 @@ public enum ProductService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public void insertProduct(ProductDTO dto) {}
+	public void insertProduct(ProductDTO dto) {
+		dao.insertProduct(dto);
+	}
 	
 	public ProductDTO selectProduct(String pNo) {
-		return null;
+		return dao.selectProduct(pNo)
+				;
 	}
 	public List<ProductDTO> selectProducts() {
 		
-		return null;
+		return dao.selectProducts();
 	}
-	public void updateProduct(ProductDTO dto) {}
+	public void updateProduct(ProductDTO dto) {
+		dao.updateProduct(dto);
+	}
 	
-	public void deleteProduct(String pNo) {}
+	public void deleteProduct(String pNo) {
+		dao.deleteProduct(pNo);
+	}
 }

@@ -44,18 +44,21 @@ public class CommentController extends HttpServlet {
 		
 		String kind = request.getParameter("kind");
 		String no = request.getParameter("no");
+		String content = request.getParameter("content");
 		
 		// result 선언 
 		int result = 0;
 		
 		switch(kind) {
 		
-		case "REMOVE":
-			
-			// return 된 result값을 이용 
-			result = service.deleteComment(no);
-			break;
-		
+			case "REMOVE":
+				// return 된 result값을 이용 
+				result = service.deleteComment(no);
+				break;
+				
+			case "MODIFY":
+				result = service.updateComment(no,content);
+				break;
 		}
 		
 		

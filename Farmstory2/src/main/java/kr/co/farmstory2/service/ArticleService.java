@@ -62,6 +62,9 @@ public enum ArticleService {
 	public int deleteComment(String no) {
 		return dao.deleteComment(no);
 	}
-	
+	// 댓글 수정
+	public int updateComment(String no, String content) {
+		return dao.updateComment(no, content);
+	}
 	
 }

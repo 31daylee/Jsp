@@ -4,6 +4,9 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ProductDTO {
 
 	private int pNo;
@@ -20,6 +23,9 @@ public class ProductDTO {
 	private String etc;
 	private String rdate;
 	private String path;
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	
 	public ProductDTO() {
 	
@@ -155,7 +161,17 @@ public class ProductDTO {
 		
 		File f1 = new File(path+"/"+thumb);
 		File f2 = new File(path+"/"+sName);
-		f1.renameTo(f2);
+		
+		if (f1.canRead() && f1.canWrite()) {
+		    // 파일에 대한 읽기 및 쓰기 권한이 있는 경우
+			f1.renameTo(f2);
+		    // renameTo() 호출
+		} else {
+		    // 파일에 대한 권한이 없는 경우
+		    logger.error("renameTo..error");
+		}
+		
+		
 		
 		return sName; // 메서드 사용하기 위해 sName(saveName)을 리턴 
 	}

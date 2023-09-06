@@ -102,7 +102,7 @@ public class ArticleDAO extends DBHelper{
 	
 	public List<ArticleDTO> selectArticles(int start,String cate) {
 		
-		List<ArticleDTO> articles = new ArrayList<ArticleDTO>();
+		List<ArticleDTO> articles = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
@@ -148,9 +148,43 @@ public class ArticleDAO extends DBHelper{
 	
 	
 	
-	public void updateArticle(ArticleDTO dto) {}
+	public void updateArticle(ArticleDTO dto) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setInt(3, dto.getNo());
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error("ArticleDAO updateArticle error... :"+e.getMessage());
+		}
+		
+		
+	}
 	
-	public void deleteArticle(String no) {}
+	public void deleteArticle(String no) {
+		
+		try {
+			
+			conn= getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error("ArticleDAO deleteArticle error... :"+e.getMessage());
+		}
+		
+		
+	}
 	
 	
 	// 추가
@@ -255,6 +289,26 @@ public class ArticleDAO extends DBHelper{
 		
 		return result;
 	}
+	public int updateComment(String no, String content) {
+		
+		int result =0 ;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
+			psmt.setString(1, content);
+			psmt.setString(2, no);
+			result = psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error("ArticleDAO deleteComment error :  "+e.getMessage());
+		}
+		
+		return result;
+	}
+	
 	
 	
 	
