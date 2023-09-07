@@ -24,8 +24,7 @@ public class DeleteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 글 번호 수신
 		String no = request.getParameter("no");
-		
-		
+		 
 		// 파일 삭제(DB)- 글(Article)삭제보다 먼저 이뤄져야 한다. 
 		int result = fService.deleteFile(no);
 		
