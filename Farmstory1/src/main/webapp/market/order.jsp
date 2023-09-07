@@ -119,16 +119,15 @@
 				<h3>주문정보 입력</h3>
 				<div class="shipping">
 					<form id="formOrder" action="/Farmstory1/market/proc/orderProc.jsp" method="post">
-					<table border="0">
-						<tbody>
 							<input type="hidden" name="orderUser" value="<%= sessUser.getUid()%>">
 							<input type="hidden" name="orderProduct" value="<%= pNo%>">
 							<input type="hidden" name="orderCount" value="<%= count%>">
 							<input type="hidden" name="orderDelivery" value="<%= delivery%>">
 							<input type="hidden" name="orderPrice" value="<%= price%>">
-							
 							<input type="hidden" name="orderTotal" value="<%= paseFinalPrice%>">
-							
+					<table border="0">
+						<tbody>
+		
 							<tr>
 								<td>주문자</td>
 								<td><input type="text" readonly value="<%=sessUser.getName()%>"></td>
