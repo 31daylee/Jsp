@@ -55,7 +55,7 @@
             <c:forEach var="product" items="${products}" >
                 <tr>
                     <td>
-                        <a href="./view.do?pNo=${product.pNo}"><img src="/Farmstory2/thumb/${product.thumb1}" alt="사과 500g"></a>
+                        <a href="/Farmstory2/market/view.do?pNo=${product.pNo}"><img src="/Farmstory2/thumb/${product.thumb1}" alt="사과 500g"></a>
                     </td>
                     <td>
                     <c:choose>

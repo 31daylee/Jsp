@@ -488,7 +488,7 @@ main > .info > div > .account {
 
 #sub > .market > .view > .basic {
     width: 100%;
-    height: 300px;
+    height: 320px;
     position: relative;
     overflow: hidden;
 }
@@ -551,7 +551,10 @@ main > .info > div > .account {
     list-style-type: disc;
     line-height: 20px;
 } 
-
+#sub > section > article > div.basic > img{
+	width: 240px;
+	height: 240px;
+}
 
 input[type=number]{
     width: 60px;
@@ -601,7 +604,10 @@ input[type=number]::-webkit-outer-spin-button {
     right: 0;
     bottom: 0;
 }
-
+#sub > section > article > div.info > img {
+	width: 240px;
+	height: 240px;
+}
 
 #sub > .market > .order > .shipping {}
 #sub > .market > .order > .shipping table {

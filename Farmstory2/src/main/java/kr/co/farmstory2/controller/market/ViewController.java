@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.farmstory2.dao.ProductDAO;
+import kr.co.farmstory2.dto.ProductDTO;
 import kr.co.farmstory2.service.ProductService;
 
 @WebServlet("/market/view.do")
@@ -35,10 +36,14 @@ public class ViewController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		String pNo = request.getParameter("pNo");
+		logger.debug("viewController.. pNo : "+pNo);
+		
+		ProductDTO dto = service.selectProduct(pNo);
+		request.setAttribute("dto", dto);
 		
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/market/view.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/market/view.jsp?pNo="+pNo);
 		dispatcher.forward(request, response);
 	}
 	

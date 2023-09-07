@@ -1,6 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
-
+<script>
+	$(function(){
+		
+		$('#btnBuy').click(function(e){
+			e.preventDefault();
+			$('#formOrder').submit();
+		});
+		
+		$('#btnShopping').click(function(e){
+			e.preventDefault();
+			
+			if(confirm("주문을 취소하시겠습니까?")){
+				location.href='/Farmstory1/market/list.jsp';
+			}
+		});
+	});
+</script>
         <div id="sub">
             <div><img src="../images/sub_top_tit2.png" alt="MARKET"></div>
             <section class="market">
@@ -8,7 +24,7 @@
                     <img src="../images/sub_aside_cate2_tit.png" alt="장보기"/>
 
                     <ul class="lnb">
-                        <li class="on"><a href="./market.do">장보기</a></li>
+                        <li class="on"><a href="./list.do">장보기</a></li>
                     </ul>
                 </aside>
                 <article class="order">
@@ -22,7 +38,7 @@
                     <!-- 내용 시작 -->
                     <h3>주문상품 확인</h3>
                     <div class="info">
-                        <img src="../images/market_item_thumb.jpg" alt="딸기 500g">
+                        <img src="/Farmstory2/thumb/${thumb2}" alt="${pName}">
 
                         <table border="0">                            
                             <tr>
