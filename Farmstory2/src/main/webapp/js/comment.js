@@ -68,7 +68,7 @@ $(function(){
 	})//btnComment end
 	
 	// 댓글 삭제하기 
-	$(document).on('click', '.del', function(e){
+	$(document).on('click', '.remove', function(e){
 		e.preventDefault();
 		
 		const no = $(this).data('no');

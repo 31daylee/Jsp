@@ -169,6 +169,13 @@ footer > p {
     font-weight: bold;
     text-decoration: underline;
 }
+#productList > article > table > tbody > tr > td:nth-child(2) > img{
+	width: 80px;
+	height: 80px;
+}
+
+
+
 
 /* 상품관리(등록) */
 #productRegister {}

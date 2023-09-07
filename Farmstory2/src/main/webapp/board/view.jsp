@@ -151,7 +151,7 @@ window.onload = function(){
 			             	<c:if test="${sessUser.uid eq comment.writer}">
 							<div>
 								<a href="#" class="remove" data-no="${comment.no}">삭제</a>
-								<a href="./list.do?group=${group}&cate=${cate}" class="cancel">취소</a>
+								<a href="#" class="cancel" data-no="${comment.no}">취소</a>
 								<a href="#" class="modify" data-no="${comment.no}">수정</a>
 							</div>
 							 </c:if>                

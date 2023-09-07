@@ -1,44 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>팜스토리</title>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <style></style>
-</head>
-
-<body>
-    <div id="container">
-        <header>
-            <a href="./index.do" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
-            <p>
-                <a href="/Farmstory2/">HOME |</a>
-                <a href="#">로그아웃 |</a>
-                <a href="#">고객센터</a>
-            </p>
-        </header>
+<%@ include file="./_header.jsp" %>
         <main>
-            <aside>
-                <h3>주요기능</h3>
-                <ul>
-                    <li class="on"><a href="/Farmstory2/admin/productList.do">상품관리</a></li>
-                    <li><a href="/Farmstory2/admin/orderList.do">주문관리</a></li>
-                    <li><a href="/Farmstory2/admin/userList.do">회원관리</a></li>                    
-                </ul>
-            </aside>
+        <%@ include file="./_aside.jsp" %>
             <section id="productList">
                 <nav>
                     <h3>상품목록</h3>
                 </nav>
-
                 <article>
-
                     <table border="0">
                         <tr>
                             <th><input type="checkbox" name="all"/></th>
@@ -50,16 +18,18 @@
                             <th>재고</th>
                             <th>등록일</th>
                         </tr>
+                        <c:forEach var="product" items="${products}">
                         <tr>
-                            <td><input type="checkbox" name=""/></td>
-                            <td><img src="./images/sample_item1.jpg" class="thumb" alt="샘플1"></td>
-                            <td>1011</td>
-                            <td>사과 500g</td>
-                            <td>과일</td>
-                            <td>4,000원</td>
-                            <td>100</td>
-                            <td>2023-01-01</td>
+                            <td><input type="checkbox" name="products"/></td>
+                            <td><img src="/Farmstory2/thumb/${product.thumb1}" class="thumb1" alt="${product.pName}"></td>
+                            <td>${product.pNo}</td>
+                            <td>${product.pName}</td>
+                            <td>${product.type}</td>
+                            <td>${product.getPriceWithComma()}원</td>
+                            <td>${product.stock}</td>
+                            <td>${product.getRdateWithoutTime()}</td>
                         </tr>
+                      </c:forEach>
                     </table>
 
                     <p>
@@ -68,26 +38,18 @@
                     </p>
                     
                     <p class="paging">
-                        <a href="#"><</a>
-                        <a href="#" class="on">[1]</a>
-                        <a href="#">[2]</a>
-                        <a href="#">[3]</a>
-                        <a href="#">[4]</a>
-                        <a href="#">[5]</a>
-                        <a href="#">></a>
+                       <c:if test="${pageGroupStart > 1}">
+					        <a href="./productList.do?pg=${pageGroupStart - 1}" class="prev">이전</a>
+					    </c:if>
+					    <c:forEach var="i" begin="${pageGroupStart}" end="${pageGroupEnd}" step="1">
+					        <c:set var="isOn" value="${currentPage == i}"/>
+					        <a href="./productList.do?pg=${i}" class="num ${isOn ? 'on' : ''}"> [${i}] </a>
+					    </c:forEach>
+					    <c:if test="${pageGroupEnd < lastPageNum}">
+					        <a href="./productList.do?pg=${pageGroupEnd + 1}" class="next">다음</a>
+					    </c:if>
                     </p>
-
                 </article>
-
-                
             </section>
         </main>
-        <footer>            
-            <p>                
-                Copyright(C)Farmstory All rights reserved. FARMSTORY ADMINISTRATOR Version 1.0.1
-            </p>
-        </footer>
-    </div>
-    
-</body>
-</html>
+<%@ include file="./_footer.jsp" %>

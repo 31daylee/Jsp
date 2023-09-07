@@ -2,8 +2,10 @@ package kr.co.farmstory2.dto;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -150,6 +152,13 @@ public class ProductDTO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
+	public String getRdateWithoutTime() {
+		String date = getRdate();
+		String a = date.substring(0, 10);
+		return a;
+	}
+	
+	
 	
 	public String fileRename(String thumb) {
 		

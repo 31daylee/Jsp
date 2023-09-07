@@ -1,5 +1,6 @@
 <%@page import="kr.co.farmstory2.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	UserDTO sessUser = (UserDTO)session.getAttribute("sessUser");
 
