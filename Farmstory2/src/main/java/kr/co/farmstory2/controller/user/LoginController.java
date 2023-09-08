@@ -45,11 +45,16 @@ public class LoginController extends HttpServlet {
 		UserDTO user = service.selectUser(uid,pass);
 		
 		if(user != null) {
+			
+			
 			// 현재 세션 구하기
 			HttpSession session = request.getSession();
-			
+		
 			// 사용자 세션 설정
 			session.setAttribute("sessUser", user);
+		
+			logger.info(user.toString());
+			
 			
 			// 리다이렉트
 			response.sendRedirect("/Farmstory2/");

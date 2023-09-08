@@ -18,7 +18,7 @@
 <body>
     <div id="container">
         <header>
-            <a href="/Farmstory2" class="logo"><img src="/Farmstory2/images/logo.png" alt="로고"/></a>
+            <a href="/Farmstory2/" class="logo"><img src="/Farmstory2/images/logo.png" alt="로고"/></a>
             <p>
                 <a href="/Farmstory2/index.do">HOME |</a>
                 <c:if test="${empty sessUser }">
