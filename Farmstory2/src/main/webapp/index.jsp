@@ -38,31 +38,13 @@
             <a href="#"><img src="./images/main_latest1_tit.png" alt="텃밭 가꾸기"/></a>
             <img src="./images/main_latest1_img.jpg" alt="이미지"/>
             <table border="0">
+                <c:forEach var="" items="">
                 <tr>
                     <td>></td>
                     <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
                     <td>20-12-22</td>
                 </tr>
-                <tr>
-                    <td>></td>
-                    <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                    <td>20-12-22</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                    <td>20-12-22</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                    <td>20-12-22</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                    <td>20-12-22</td>
-                </tr>
+ 				</c:forEach>
             </table>
         </div>
         <div>

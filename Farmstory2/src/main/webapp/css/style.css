@@ -582,15 +582,25 @@ input[type=number]::-webkit-outer-spin-button {
 #sub > .market > .order > .info > img {
     float: left;
 }
-#sub > .market > .order > .info > table {
+
+#sub > section > article > div.info > table > tbody > tr > td:nth-child(1) {
+	background-color: rgb(115, 183, 47, 0.1);
+    width: 18%;
+    text-align: center;
+    padding: 10px;
+}
+#sub > section > article > div.info > table > tbody > tr > td:nth-child(2) {
+padding: 5px;
+
+}
+#sub > section > article > div.info > table {
     float: right;
-    width: 60%;
+    width: 65%;
     height: 200px;
     margin-left: 16px;
     border-top: 2px solid #e7e7e7;
     border-bottom: 2px solid #e7e7e7;
 }
-
 #sub > .market > .order > .info > table em {            
     color: #777;
 }

@@ -9,9 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import kr.co.farmstory2.dto.UserDTO;
 
 
 @WebServlet("/market/order.do")
@@ -58,8 +61,16 @@ public class OrderController extends HttpServlet {
 		
 		logger.debug("thumb2 : "+thumb2);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/market/order.jsp");
-		dispatcher.forward(request, response);
+		// 회원만 글 작성 가능하게 세션 정보 확인 
+        HttpSession session = request.getSession();
+		UserDTO sessUser = (UserDTO) session.getAttribute("sessUser");
+		
+		if(sessUser != null) { 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/market/order.jsp");
+			dispatcher.forward(request, response);
+		}else {
+		  response.sendRedirect("/Farmstory2/user/login.do?success=101"); }
+		
 	}
 
 }

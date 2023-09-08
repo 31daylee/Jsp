@@ -22,7 +22,6 @@
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
-	
 	</appender>
 	
 	<!-- 롤링 어팬더(일자별) -->
@@ -52,8 +51,8 @@
 	</appender>
 	
 	
-	<root level="debug">
-		<appender-ref ref="STDOUT" />  <!-- 콘솔 출력 용 -->
+	<root level="info">
+		 <!--<appender-ref ref="STDOUT" />  콘솔 출력 용 -->
 		<appender-ref ref="ROLLING_DAILY" />
 	</root>
 </configuration>

@@ -1,5 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
+<script>
+ 	const success = ${success};
+ 	
+ 	if(success == 400){
+ 		alert('성공적으로 주문 완료하셨습니다.');
+ 	}	
+ </script>
 <div id="sub">
     <div><img src="../images/sub_top_tit2.png" alt="MARKET"></div>
     <section class="market">

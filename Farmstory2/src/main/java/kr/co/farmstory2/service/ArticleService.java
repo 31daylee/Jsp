@@ -67,4 +67,9 @@ public enum ArticleService {
 		return dao.updateComment(no, content);
 	}
 	
+	// Index에서 최신글 조회 
+	public List<ArticleDTO> selectLatests(String cate, int size){
+		return dao.selectLatests(cate, size);
+	}
+	
 }

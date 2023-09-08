@@ -15,17 +15,25 @@ public enum OrderService {
 	OrderDAO dao = new OrderDAO();
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public void insertOrder(OrderDTO dto) {}
+	public void insertOrder(OrderDTO dto) {
+	
+		dao.insertOrder(dto);
+	}
 	
 	public OrderDTO selectOrder(String orderNo) {
-		return null;
+		return dao.selectOrder(orderNo);
 	}
 	public List<OrderDTO> selectOrders() {
 		
-		return null;
+		return dao.selectOrders();
 	}
-	public void updateOrder(OrderDTO dto) {}
+	public void updateOrder(OrderDTO dto) {
+		dao.updateOrder(dto);
+		
+	}
 	
-	public void deleteOrder(String orderNo) {}
+	public void deleteOrder(String orderNo) {
+		dao.deleteOrder(orderNo);
+	}
 	
 }

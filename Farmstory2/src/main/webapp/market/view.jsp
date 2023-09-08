@@ -63,7 +63,6 @@
                     <h3>기본정보</h3>
                     <div class="basic">
                         <img src="/Farmstory2/thumb/${dto.thumb2}" alt="딸기 500g">
-
                         <table border="0">                            
                             <tr>
                                 <td>상품명</td>
@@ -101,8 +100,6 @@
                                 <td>합계</td>
                                 <td class="total">${dto.getPriceWithComma()}원</td>
                             </tr>
-
-                         
                         </table>
                         <form id="formOrder" action="/Farmstory2/market/order.do" method="post">
                         	<input type="hidden" name="thumb2" 		value="${dto.thumb2}">
