@@ -44,7 +44,7 @@
 </script>
 
         <div id ="sub">
-            <div class="bg"><img src="/Farmstory1//images/sub_top_tit2.png" alt="MARKET"></div>
+            <div class="bg"><img src="/Farmstory1/images/sub_top_tit2.png" alt="MARKET"></div>
             <section class="market"> 
                 <aside>
                     <img src="/Farmstory1/images/sub_aside_cate2_tit.png" alt="장보기">

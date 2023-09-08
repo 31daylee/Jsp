@@ -57,7 +57,7 @@
 					<td>></td>
 					<td><a href="/Farmstory1/board/view.jsp?group=Croptalk&cate=school&no=<%=latest.getNo()%>"><%=latest.getTitle() %></a></td>
 					<td><%=latest.getRdate() %></td>
-				</tr>
+				</tr> 
 				<% } %>
 			</table>
 		</article>
