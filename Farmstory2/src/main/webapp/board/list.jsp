@@ -24,7 +24,6 @@
 			                <td>${article.rdate}</td>
 			                <td>${article.hit}</td>
 			            </tr>
-			            <c:set var="pageStartNum" value="${pageStartNum - 1}" />
 			            </c:forEach>
 			        </table>
 			    </article>
